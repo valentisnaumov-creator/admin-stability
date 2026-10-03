@@ -1,0 +1,13 @@
+meta:
+  version: 1.0
+  name: my-vk-bot
+  description: Объединённый бот ЧС/ОЧС для трёх групп ВК
+
+build:
+  type: python
+  version: 3.10
+  requirements: requirements.txt
+
+run:
+  command: python bot.py
+  port: 8080
