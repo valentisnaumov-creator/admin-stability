@@ -50,3 +50,18 @@ drop policy if exists "schedule_auth_write" on public.schedule_assignments;
 create policy "schedule_public_read" on public.schedule_assignments for select using (true);
 create policy "schedule_auth_write" on public.schedule_assignments for all to authenticated using (true) with check (true);
 create index if not exists schedule_assignments_date_idx on public.schedule_assignments(work_date);
+
+
+create table if not exists public.schedule_slots (
+  slot_key text primary key check (slot_key in ('06-08','08-11','11-13','13-16','16-19','19-21','21-00','00-02')),
+  capacity int not null check (capacity between 1 and 20),
+  updated_at timestamptz not null default now()
+);
+insert into public.schedule_slots(slot_key,capacity) values
+('06-08',2),('08-11',2),('11-13',3),('13-16',3),('16-19',3),('19-21',3),('21-00',2),('00-02',2)
+on conflict (slot_key) do nothing;
+alter table public.schedule_slots enable row level security;
+drop policy if exists "schedule_slots_public_read" on public.schedule_slots;
+drop policy if exists "schedule_slots_auth_write" on public.schedule_slots;
+create policy "schedule_slots_public_read" on public.schedule_slots for select using (true);
+create policy "schedule_slots_auth_write" on public.schedule_slots for all to authenticated using (true) with check (true);
