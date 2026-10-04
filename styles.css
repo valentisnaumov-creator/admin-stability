@@ -177,3 +177,20 @@
 .scheduleOnly #inviteBtn{display:none!important}
 .readOnly button[data-edit-only],.readOnly .editOnly{display:none!important}
 .globalToast{position:fixed;z-index:20000;right:18px;bottom:18px;max-width:min(420px,calc(100vw - 36px));padding:12px 15px;border:1px solid rgba(244,63,94,.28);border-radius:13px;background:rgba(24,29,42,.97);box-shadow:0 15px 45px rgba(0,0,0,.38);color:#fff;font-size:10px;opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s}.globalToast.show{opacity:1;transform:none}.globalToast.ok{border-color:rgba(34,197,94,.3)}@media(max-width:650px){.globalToast{left:12px;right:12px;bottom:12px;max-width:none}}
+/* v74 messenger conversations */
+.messengerShell{display:grid!important;grid-template-columns:280px minmax(0,1fr)!important}
+.conversationPane{min-width:0;min-height:0;display:flex;flex-direction:column}
+.dialogSidebar{display:flex;flex-direction:column;min-width:0;border-right:1px solid var(--border);background:rgba(7,11,20,.55)}
+.dialogSideHead{height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 14px}
+.dialogSideHead b{font-size:14px}.dialogSideHead button{width:34px;height:34px;border:0;border-radius:11px;background:rgba(168,85,247,.16);color:#d8b4fe;font-size:20px;cursor:pointer}
+.dialogSearch{padding:0 10px 10px}.dialogSearch input{width:100%;height:36px!important;padding:0 11px!important;border-radius:10px!important}
+.dialogList{flex:1;overflow:auto;padding:2px 6px 8px}
+.dialogItem{width:100%;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:9px;align-items:center;padding:8px;border:0;border-radius:12px;background:transparent;color:var(--text);text-align:left;cursor:pointer}
+.dialogItem:hover{background:rgba(255,255,255,.04)}.dialogItem.active{background:rgba(168,85,247,.16)}
+.dialogItem>span:nth-child(2){min-width:0}.dialogItem b,.dialogItem small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dialogItem b{font-size:10px}.dialogItem small{margin-top:3px;color:var(--muted);font-size:8px}
+.dialogAvatar{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#b14ef0,#6332b7);font-weight:900}
+.dialogItem em{min-width:18px;height:18px;padding:0 5px;display:grid;place-items:center;border-radius:10px;background:#9c43e8;font-size:8px;font-style:normal}
+.newDialogDialog{width:min(470px,calc(100vw - 24px));border-radius:20px}.newDialogDialog>input{width:100%;margin:12px 0}.newDialogUsers{max-height:430px;overflow:auto}
+.newDialogUsers button{width:100%;display:flex;gap:10px;align-items:center;padding:10px;border:0;border-radius:11px;background:transparent;color:var(--text);text-align:left;cursor:pointer}.newDialogUsers button:hover{background:rgba(255,255,255,.05)}
+.newDialogUsers button>span{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#6930ad}.newDialogUsers b,.newDialogUsers small{display:block}.newDialogUsers small{margin-top:3px;color:var(--muted)}
+@media(max-width:760px){.messengerShell{grid-template-columns:76px minmax(0,1fr)!important}.dialogSideHead b,.dialogSearch,.dialogItem>span:nth-child(2),.dialogItem em{display:none}.dialogSideHead{justify-content:center;padding:0}.dialogItem{display:flex;justify-content:center;padding:7px}.dialogAvatar{width:44px;height:44px}.dialogItem.active .dialogAvatar{outline:2px solid #a855f7}}
