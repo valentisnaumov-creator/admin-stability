@@ -249,3 +249,25 @@ begin
 end;
 $$;
 grant execute on function public.creator_set_user_access(uuid,text,uuid) to authenticated;
+
+
+-- === v39: free nickname for legacy accounts ===
+create or replace function public.claim_my_nickname(p_nickname text)
+returns void
+language plpgsql
+security definer
+set search_path=public
+as $$
+declare v_current text;
+begin
+  if auth.uid() is null then raise exception 'Пользователь не авторизован'; end if;
+  p_nickname:=trim(coalesce(p_nickname,''));
+  if length(p_nickname)<3 or length(p_nickname)>32 then raise exception 'Ник должен содержать от 3 до 32 символов'; end if;
+  select nickname into v_current from public.user_roles where user_id=auth.uid();
+  if coalesce(v_current,'')<>'' then raise exception 'Ник уже установлен'; end if;
+  if exists(select 1 from public.user_roles where lower(nickname)=lower(p_nickname) and user_id<>auth.uid())
+    then raise exception 'Этот ник уже используется другим аккаунтом'; end if;
+  update public.user_roles set nickname=p_nickname,updated_at=now() where user_id=auth.uid();
+end;
+$$;
+grant execute on function public.claim_my_nickname(text) to authenticated;
