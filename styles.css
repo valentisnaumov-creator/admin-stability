@@ -167,3 +167,12 @@
 .siteConfirmDialog{width:min(390px,calc(100vw - 28px));text-align:center;padding:28px;border-radius:22px}.siteConfirmDialog::backdrop{background:rgba(2,4,12,.7);backdrop-filter:blur(6px)}.siteConfirmDialog .dangerIcon{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 13px;border-radius:50%;background:rgba(244,63,94,.13);color:#fb7185;font-size:23px;font-weight:900}.siteConfirmDialog h2{margin:0 0 7px}.siteConfirmDialog p{color:var(--muted);font-size:10px}.siteConfirmDialog>div{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}.siteConfirmDialog button{height:42px;border-radius:11px}.dangerBtn{border:0;background:#dc3545;color:#fff;font-weight:800}
 .chatToast{position:fixed;z-index:10000;left:50%;bottom:26px;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:10px 16px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:#171f2f;color:#fff;font-size:10px;box-shadow:0 12px 35px rgba(0,0,0,.35);transition:.2s}.chatToast.show{opacity:1;transform:translate(-50%,0)}.chatToast.error{border-color:rgba(244,63,94,.35)}
 @media(max-width:650px){.reactionPanel{width:calc(100vw - 20px);left:10px!important}.reactionGrid{grid-template-columns:repeat(6,1fr)}.reactionGrid button{height:38px}.inlineEditor textarea{width:68vw!important;min-width:190px!important}}
+
+/* v65: all roles see the full navigation. Permissions remain enforced by JS/RLS. */
+.scheduleOnly .nav button[data-view]{display:flex!important}
+.scheduleOnly main>section{display:block!important}
+.scheduleOnly main>section[hidden]{display:none!important}
+.scheduleOnly .quickBar{display:none!important}
+.scheduleOnly #rolesBtn{display:none!important}
+.scheduleOnly #inviteBtn{display:none!important}
+.readOnly button[data-edit-only],.readOnly .editOnly{display:none!important}
