@@ -116,3 +116,23 @@
 .replyBar{display:flex;justify-content:space-between;align-items:center;padding:8px 13px;background:rgba(139,61,220,.12);font-size:9px}.replyBar button{border:0;background:none;color:var(--text)}
 .chatSide{padding:18px}.chatSide p,.chatSide small{color:var(--muted);line-height:1.55}
 @media(max-width:800px){.chatLayout{grid-template-columns:1fr}.chatSide{display:none}.chatMessages{height:58vh}.replacementRequest{align-items:flex-start;flex-direction:column}}
+
+/* v57: schedule-only users may use schedule, personal metrics and chat */
+.scheduleOnly .nav button[data-view="mystats"],
+.scheduleOnly .nav button[data-view="chat"]{display:flex!important}
+.scheduleOnly main>section#mystatsView,
+.scheduleOnly main>section#chatView{display:block}
+.scheduleOnly main>section#mystatsView[hidden],
+.scheduleOnly main>section#chatView[hidden]{display:none!important}
+
+/* Chat composer: override global form/input rules */
+#chatView .chatPanel{min-width:0;display:flex;flex-direction:column}
+#chatView .chatMessages{flex:1;min-height:360px}
+#chatView .chatComposer{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:end!important;width:100%!important;padding:12px!important;gap:10px!important;box-sizing:border-box}
+#chatView .chatComposer textarea{display:block!important;width:100%!important;min-width:0!important;height:58px!important;min-height:58px!important;max-height:140px!important;box-sizing:border-box!important;resize:vertical!important;padding:12px 14px!important;border-radius:12px!important}
+#chatView .chatComposer button{height:48px!important;min-width:130px!important;padding:0 22px!important}
+@media(max-width:650px){
+ #chatView .chatComposer{grid-template-columns:1fr!important}
+ #chatView .chatComposer button{width:100%!important}
+ #chatView .chatMessages{min-height:52vh}
+}
