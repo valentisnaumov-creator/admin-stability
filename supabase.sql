@@ -145,3 +145,63 @@ with check (public.current_app_role() in ('creator','chief_admin'));
 
 -- IMPORTANT: after running this file, make your account the creator once:
 -- update public.user_roles set role='creator' where email='YOUR_EMAIL';
+
+
+-- === Nicknames + schedule-only access for Admin/Trainee ===
+alter table public.user_roles add column if not exists nickname text not null default '';
+alter table public.user_roles add column if not exists staff_id uuid references public.staff(id) on delete set null;
+create unique index if not exists user_roles_nickname_unique
+on public.user_roles (lower(nickname)) where nickname <> '';
+
+create or replace function public.handle_new_user_role()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_nick text := trim(coalesce(new.raw_user_meta_data->>'nickname',''));
+  v_staff uuid;
+begin
+  if v_nick <> '' then
+    select id into v_staff from public.staff where lower(name)=lower(v_nick) limit 1;
+  end if;
+  insert into public.user_roles(user_id,email,nickname,staff_id,role)
+  values(new.id,coalesce(new.email,''),v_nick,v_staff,'trainee')
+  on conflict (user_id) do update
+    set email=excluded.email,
+        nickname=case when public.user_roles.nickname='' then excluded.nickname else public.user_roles.nickname end,
+        staff_id=coalesce(public.user_roles.staff_id,excluded.staff_id);
+  return new;
+end;
+$$;
+
+-- Creator may edit roles and link accounts to staff. Users may only read themselves.
+drop policy if exists "roles_creator_update" on public.user_roles;
+create policy "roles_creator_update" on public.user_roles for update to authenticated
+using (public.current_app_role()='creator')
+with check (role in ('creator','chief_admin','admin','trainee'));
+
+-- Admin/trainee can add ONLY themselves to schedule, at most twice per day.
+drop policy if exists "schedule_management_write" on public.schedule_assignments;
+drop policy if exists "schedule_self_insert" on public.schedule_assignments;
+drop policy if exists "schedule_self_delete" on public.schedule_assignments;
+
+create policy "schedule_management_write" on public.schedule_assignments for all to authenticated
+using (public.current_app_role() in ('creator','chief_admin'))
+with check (public.current_app_role() in ('creator','chief_admin'));
+
+create policy "schedule_self_insert" on public.schedule_assignments for insert to authenticated
+with check (
+  public.current_app_role() in ('admin','trainee')
+  and staff_id=(select ur.staff_id from public.user_roles ur where ur.user_id=auth.uid())
+  and (select count(*) from public.schedule_assignments sa
+       where sa.work_date=schedule_assignments.work_date
+         and sa.staff_id=schedule_assignments.staff_id) < 2
+);
+
+create policy "schedule_self_delete" on public.schedule_assignments for delete to authenticated
+using (
+  public.current_app_role() in ('admin','trainee')
+  and staff_id=(select ur.staff_id from public.user_roles ur where ur.user_id=auth.uid())
+);
