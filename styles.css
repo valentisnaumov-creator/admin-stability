@@ -59,3 +59,21 @@
 .accessToolbar button.active,.accessFilters button.active{border-color:#a855f7;background:rgba(168,85,247,.13);color:#fff}
 #rolesDialog .accessFilters{grid-column:1/-1!important;display:flex!important;gap:7px!important;flex-wrap:wrap!important;padding:0!important;border:0!important;background:transparent!important}
 .auditList{display:grid;gap:10px;height:100%;overflow-y:auto;padding-right:4px}.auditItem{padding:15px 17px;border:1px solid #273149;border-radius:13px;background:#101725}.auditItem>div{display:flex;align-items:center;justify-content:space-between;gap:12px}.auditItem b{font-size:12px}.auditItem span,.auditItem small{font-size:9px;color:var(--muted)}.auditItem p{margin:9px 0 7px;font-size:11px;line-height:1.5;color:#d7dbea}.emptyAccess{display:grid;place-items:center;min-height:240px;color:var(--muted)}
+
+/* v47 sticky save controls */
+#rolesDialog .rolesBox{padding:20px 24px!important}
+#rolesDialog .rolesBox>h2{font-size:25px!important;margin:3px 0 3px!important}
+#rolesDialog .rolesBox>.muted{margin-bottom:12px!important}
+#rolesDialog .creatorStats{gap:9px!important;margin-bottom:12px!important}
+#rolesDialog .creatorStats>div{padding:11px 14px!important}
+#rolesDialog .creatorStats b{font-size:21px!important}
+#rolesDialog #rolesList{margin-top:10px!important}
+.accessLayout{min-height:0!important;height:100%!important}
+.accessEditor{display:flex!important;flex-direction:column!important;padding:0!important;overflow:hidden!important}
+.accessEditorHead{flex:0 0 auto;padding:18px 22px!important}
+.accessForm{flex:1!important;overflow-y:auto!important;max-width:none!important;padding:18px 22px 16px!important;align-content:start}
+.accessForm>label,.accessForm>.accessHint{max-width:620px}
+.accessSaveBar{flex:0 0 auto;display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:13px 22px;border-top:1px solid #273149;background:#0c121e;box-shadow:0 -10px 24px rgba(0,0,0,.18)}
+.accessSaveBar span{margin-right:auto;font-size:9px;color:var(--muted)}.accessSaveBar span.dirty{color:#d88cff}
+.accessSaveBar .primary{width:auto!important;min-width:190px!important;height:44px!important}
+@media(max-width:700px){.accessEditor{min-height:520px}.accessSaveBar{position:sticky;bottom:0;padding:11px 14px}.accessSaveBar span{display:none}.accessSaveBar .primary{width:100%!important}.accessForm{padding:16px 14px!important}}
