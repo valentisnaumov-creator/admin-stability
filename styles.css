@@ -77,3 +77,9 @@
 .accessSaveBar span{margin-right:auto;font-size:9px;color:var(--muted)}.accessSaveBar span.dirty{color:#d88cff}
 .accessSaveBar .primary{width:auto!important;min-width:190px!important;height:44px!important}
 @media(max-width:700px){.accessEditor{min-height:520px}.accessSaveBar{position:sticky;bottom:0;padding:11px 14px}.accessSaveBar span{display:none}.accessSaveBar .primary{width:100%!important}.accessForm{padding:16px 14px!important}}
+
+/* v48 guaranteed visible save button */
+#rolesDialog{position:relative!important}
+.accessInlineSave{display:block!important;width:100%!important;max-width:620px!important;min-height:48px!important;margin:4px 0 30px!important;font-size:12px!important}
+.floatingAccountSave{display:block!important;position:absolute!important;right:28px!important;bottom:24px!important;z-index:9999!important;width:auto!important;min-width:150px!important;height:46px!important;padding:0 22px!important;border-radius:12px!important;box-shadow:0 12px 35px rgba(139,61,220,.38)!important}
+@media(max-width:700px){.floatingAccountSave{right:14px!important;bottom:14px!important;left:14px!important;width:calc(100% - 28px)!important}.accessForm{padding-bottom:80px!important}}
