@@ -65,3 +65,83 @@ drop policy if exists "schedule_slots_public_read" on public.schedule_slots;
 drop policy if exists "schedule_slots_auth_write" on public.schedule_slots;
 create policy "schedule_slots_public_read" on public.schedule_slots for select using (true);
 create policy "schedule_slots_auth_write" on public.schedule_slots for all to authenticated using (true) with check (true);
+
+
+-- === Account roles and secure write permissions ===
+-- New accounts are viewers by default. Promote the first creator manually after running this file.
+create table if not exists public.user_roles (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  email text not null default '',
+  role text not null default 'trainee' check (role in ('creator','chief_admin','admin','trainee')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.user_roles enable row level security;
+
+create or replace function public.handle_new_user_role()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into public.user_roles(user_id,email,role)
+  values(new.id,coalesce(new.email,''),'trainee')
+  on conflict (user_id) do nothing;
+  return new;
+end;
+$$;
+
+drop trigger if exists on_auth_user_created_role on auth.users;
+create trigger on_auth_user_created_role
+after insert on auth.users
+for each row execute procedure public.handle_new_user_role();
+
+insert into public.user_roles(user_id,email,role)
+select id,coalesce(email,''),'trainee' from auth.users
+on conflict (user_id) do nothing;
+
+create or replace function public.current_app_role()
+returns text
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select coalesce((select role from public.user_roles where user_id=auth.uid()),'trainee');
+$$;
+
+drop policy if exists "roles_self_read" on public.user_roles;
+drop policy if exists "roles_creator_read" on public.user_roles;
+drop policy if exists "roles_creator_update" on public.user_roles;
+create policy "roles_self_read" on public.user_roles for select to authenticated using (user_id=auth.uid());
+create policy "roles_creator_read" on public.user_roles for select to authenticated using (public.current_app_role()='creator');
+create policy "roles_creator_update" on public.user_roles for update to authenticated
+using (public.current_app_role()='creator')
+with check (role in ('creator','chief_admin','admin','trainee'));
+
+-- Replace old policies that gave every authenticated account write access.
+drop policy if exists "staff_auth_write" on public.staff;
+drop policy if exists "marks_auth_write" on public.daily_marks;
+drop policy if exists "schedule_auth_write" on public.schedule_assignments;
+drop policy if exists "schedule_slots_auth_write" on public.schedule_slots;
+
+create policy "staff_management_write" on public.staff for all to authenticated
+using (public.current_app_role() in ('creator','chief_admin'))
+with check (public.current_app_role() in ('creator','chief_admin'));
+
+create policy "marks_management_write" on public.daily_marks for all to authenticated
+using (public.current_app_role() in ('creator','chief_admin'))
+with check (public.current_app_role() in ('creator','chief_admin'));
+
+create policy "schedule_management_write" on public.schedule_assignments for all to authenticated
+using (public.current_app_role() in ('creator','chief_admin'))
+with check (public.current_app_role() in ('creator','chief_admin'));
+
+create policy "schedule_slots_management_write" on public.schedule_slots for all to authenticated
+using (public.current_app_role() in ('creator','chief_admin'))
+with check (public.current_app_role() in ('creator','chief_admin'));
+
+-- IMPORTANT: after running this file, make your account the creator once:
+-- update public.user_roles set role='creator' where email='YOUR_EMAIL';
