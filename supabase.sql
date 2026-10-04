@@ -205,3 +205,47 @@ using (
   public.current_app_role() in ('admin','trainee')
   and staff_id=(select ur.staff_id from public.user_roles ur where ur.user_id=auth.uid())
 );
+
+
+-- === Existing-account nickname claim + creator account management ===
+create or replace function public.claim_my_staff_nickname(p_nickname text)
+returns uuid
+language plpgsql
+security definer
+set search_path=public
+as $$
+declare
+  v_staff uuid;
+  v_current text;
+begin
+  if auth.uid() is null then raise exception 'Not authenticated'; end if;
+  p_nickname := trim(coalesce(p_nickname,''));
+  if length(p_nickname)<3 then raise exception 'Введите игровой ник'; end if;
+  select nickname into v_current from public.user_roles where user_id=auth.uid();
+  if coalesce(v_current,'')<>'' then raise exception 'Ник уже установлен'; end if;
+  if exists(select 1 from public.user_roles where lower(nickname)=lower(p_nickname) and user_id<>auth.uid())
+    then raise exception 'Этот ник уже привязан к другому аккаунту'; end if;
+  select id into v_staff from public.staff where lower(name)=lower(p_nickname) and dismissed_at is null limit 1;
+  if v_staff is null then raise exception 'Такого действующего сотрудника нет в составе'; end if;
+  update public.user_roles set nickname=p_nickname,staff_id=v_staff,updated_at=now() where user_id=auth.uid();
+  return v_staff;
+end;
+$$;
+grant execute on function public.claim_my_staff_nickname(text) to authenticated;
+
+create or replace function public.creator_set_user_access(p_user uuid,p_role text,p_staff uuid)
+returns void
+language plpgsql
+security definer
+set search_path=public
+as $$
+declare v_name text;
+begin
+  if public.current_app_role()<>'creator' then raise exception 'Недостаточно прав'; end if;
+  if p_role not in ('creator','chief_admin','admin','trainee') then raise exception 'Неизвестная роль'; end if;
+  if p_staff is not null then select name into v_name from public.staff where id=p_staff;
+  else v_name:=''; end if;
+  update public.user_roles set role=p_role,staff_id=p_staff,nickname=coalesce(v_name,''),updated_at=now() where user_id=p_user;
+end;
+$$;
+grant execute on function public.creator_set_user_access(uuid,text,uuid) to authenticated;
