@@ -31,3 +31,22 @@
 #rolesDialog .creatorUserFoot small{margin-right:auto}
 #rolesDialog .saveAccess{width:auto!important;min-width:190px!important;height:44px!important}
 @media(max-width:760px){#rolesDialog{width:100vw!important;height:100dvh!important;max-width:none!important;border-radius:0!important;border:0!important}#rolesDialog .rolesBox{padding:20px 14px!important}#rolesDialog .creatorStats{grid-template-columns:1fr 1fr!important}#rolesDialog .creatorStats>div:nth-child(3){grid-column:1/-1!important}#rolesDialog .creatorControls{grid-template-columns:1fr!important}#rolesDialog .creatorUserFoot{align-items:stretch!important;flex-direction:column!important}#rolesDialog .saveAccess{width:100%!important}#rolesDialog .creatorUserFoot small{margin:0!important}}
+
+/* v43 access manager */
+#rolesDialog{width:min(980px,calc(100vw - 32px))!important;height:min(760px,calc(100vh - 32px))!important}
+#rolesDialog .rolesBox{display:flex!important;flex-direction:column!important}
+#rolesDialog #rolesList{flex:1!important;min-height:0!important;overflow:hidden!important;margin-top:16px!important}
+.accessLayout{display:grid;grid-template-columns:300px minmax(0,1fr);height:100%;min-height:390px;border:1px solid #273149;border-radius:16px;overflow:hidden;background:#0e1421}
+.accessUsers{padding:14px;border-right:1px solid #273149;background:#0b111d;overflow-y:auto}
+.accessUsers>input{width:100%;height:42px;margin-bottom:12px;box-sizing:border-box}
+#accessUserList{display:grid;gap:7px}
+.accessUser{display:flex;align-items:center;gap:10px;width:100%;padding:10px;border:1px solid transparent;border-radius:11px;background:transparent;color:inherit;text-align:left;cursor:pointer}
+.accessUser:hover{background:#151d2c}.accessUser.active{border-color:#8b4dca;background:#171d31}
+.accessUserAvatar{display:grid;place-items:center;width:36px;height:36px;flex:0 0 36px;border-radius:10px;background:#9239db;color:#fff;font-weight:900}
+.accessUser>span:last-child{min-width:0}.accessUser b,.accessUser small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.accessUser b{font-size:12px}.accessUser small{font-size:9px;color:var(--muted);margin-top:3px}
+.accessEditor{padding:28px;overflow-y:auto}
+.accessEditorHead{display:flex;align-items:center;gap:14px;padding-bottom:22px;border-bottom:1px solid #273149}
+.bigAccessAvatar{display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,#d15cff,#6d35dc);font-size:26px;font-weight:900;color:#fff}
+.accessEditorHead h3{font-size:21px;margin:0 0 5px}.accessEditorHead p{margin:0;color:var(--muted);font-size:11px}
+.accessForm{display:grid;gap:16px;max-width:560px;padding-top:22px}.accessForm label{display:grid;gap:7px}.accessForm label>span{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.accessForm input,.accessForm select{height:46px;width:100%;box-sizing:border-box}.accessForm small{color:var(--muted);font-size:9px}.accessForm .primary{height:46px;margin-top:4px}
+@media(max-width:700px){#rolesDialog{width:100vw!important;height:100dvh!important}.accessLayout{grid-template-columns:1fr;height:auto;overflow:visible}.accessUsers{border-right:0;border-bottom:1px solid #273149;max-height:230px}.accessEditor{padding:20px 14px}#rolesDialog #rolesList{overflow-y:auto!important}}
