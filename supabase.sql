@@ -271,3 +271,34 @@ begin
 end;
 $$;
 grant execute on function public.claim_my_nickname(text) to authenticated;
+
+
+-- === v40 creator: nickname, role and schedule link are independent ===
+create or replace function public.creator_update_user(
+  p_user uuid,
+  p_nickname text,
+  p_role text,
+  p_staff uuid
+)
+returns void
+language plpgsql
+security definer
+set search_path=public
+as $$
+begin
+  if public.current_app_role()<>'creator' then raise exception 'Недостаточно прав'; end if;
+  p_nickname:=trim(coalesce(p_nickname,''));
+  if length(p_nickname)<3 or length(p_nickname)>32 then raise exception 'Ник должен содержать от 3 до 32 символов'; end if;
+  if p_role not in ('creator','chief_admin','admin','trainee') then raise exception 'Неизвестная роль'; end if;
+  if exists(select 1 from public.user_roles where lower(nickname)=lower(p_nickname) and user_id<>p_user)
+    then raise exception 'Этот ник уже используется другим аккаунтом'; end if;
+  if p_staff is not null and not exists(select 1 from public.staff where id=p_staff and dismissed_at is null)
+    then raise exception 'Сотрудник для графика не найден'; end if;
+  if p_staff is not null and exists(select 1 from public.user_roles where staff_id=p_staff and user_id<>p_user)
+    then raise exception 'Этот сотрудник уже привязан к другому аккаунту'; end if;
+  update public.user_roles
+  set nickname=p_nickname,role=p_role,staff_id=p_staff,updated_at=now()
+  where user_id=p_user;
+end;
+$$;
+grant execute on function public.creator_update_user(uuid,text,text,uuid) to authenticated;
