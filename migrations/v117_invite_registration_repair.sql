@@ -1,6 +1,8 @@
 -- v117: make invite validation and signup use the same server-side rules
 
-create or replace function public.check_registration_invite(p_token text)
+drop function if exists public.check_registration_invite(text);
+
+create function public.check_registration_invite(p_token text)
 returns table(valid boolean, invite_role text)
 language sql
 stable
