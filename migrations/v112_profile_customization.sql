@@ -12,7 +12,9 @@ alter table public.user_profiles
   drop constraint if exists user_profiles_profile_effect_check,
   add constraint user_profiles_profile_effect_check check (profile_effect in ('solid','gradient','animated','aurora','none'));
 
-create or replace function public.get_staff_profile(p_user uuid)
+drop function if exists public.get_staff_profile(uuid);
+
+create function public.get_staff_profile(p_user uuid)
 returns table(
   user_id uuid, nickname text, account_role text, staff_id uuid, staff_role text,
   appointed_at date, yellow_cards integer, red_cards integer, avatar_url text,
