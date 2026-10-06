@@ -773,3 +773,65 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
 @media(min-width:1600px){
   .staffGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 }
+
+/* v131 mobile refinement: calendar, daily norm, stats and messenger */
+@media(max-width:700px){
+  /* Calendar: denser month navigation and cards */
+  #calendarView .pageHead{display:grid!important;grid-template-columns:1fr auto!important;gap:8px!important}
+  #calendarView .month.compact{gap:4px!important}
+  #calendarView .month.compact button{width:34px!important;height:34px!important}
+  #calendarView .month.compact strong{min-width:86px!important;font-size:10px!important}
+  #calendarView .toolbar{display:grid!important;grid-template-columns:minmax(0,1fr) 120px!important;padding:0!important;background:none!important}
+  #calendarView .toolbar input,#calendarView .toolbar select{height:40px!important;font-size:11px!important}
+  #calendarView .cards{gap:6px!important}
+  #calendarView .card{padding:10px!important;border-radius:12px!important}
+  #calendarView .days{grid-template-columns:repeat(10,1fr)!important;gap:3px!important;margin-top:8px!important}
+  #calendarView .day{border-radius:5px!important;font-size:8px!important}
+
+  /* Daily norm: replace the last native date field with app-like control styling */
+  #dayView .pageHead{display:grid!important;grid-template-columns:1fr 132px!important;gap:8px!important}
+  #dayDate{width:132px!important;height:40px!important;padding:7px!important;font-size:10px!important}
+  #dayView .normEditorHead b{font-size:15px!important}
+  #dayView .normEditorActions{grid-template-columns:1fr 1fr!important}
+  #dayView #saveAllNormsBtn{grid-column:1/-1!important}
+  #dayView .normPerson b{font-size:11px!important}
+  #dayView .normPerson small{font-size:8px!important}
+  #dayView .tinyAvatar{width:32px!important;height:32px!important;flex-basis:32px!important}
+  #dayView .normEditRow{padding:8px!important}
+  #dayView .dayLegend{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;margin:8px 2px!important;font-size:8px!important}
+  #dayView .dayTotals{margin-top:8px!important;padding-top:8px!important}
+  #dayView .dayTotals b{font-size:20px!important}
+
+  /* Statistics: readable compact leaderboard */
+  #statsviewView .statsPanel{padding:10px!important}
+  #statsviewView .statsRow{padding:9px!important;gap:6px!important;border-radius:10px!important}
+  #statsviewView .statsPerson b{font-size:11px!important}
+  #statsviewView .statsPerson small{font-size:8px!important}
+  #statsviewView .statsRow>b{font-size:11px!important}
+  #statsviewView .statPct b{font-size:11px!important}
+
+  /* My stats */
+  #mystatsView .profileStats{gap:5px!important;margin:9px 0!important}
+  #mystatsView .profileStat{padding:8px!important;border-radius:10px!important}
+  #mystatsView .profileStat b{font-size:14px!important}
+  #mystatsView .profileChartPanel{padding:9px!important;margin-bottom:9px!important}
+  #mystatsView .profileChart{height:90px!important}
+
+  /* Messenger: maximize usable viewport and keep composer reachable */
+  #chatView{height:calc(100dvh - 166px)!important;min-height:430px!important}
+  #chatView .messengerShell{height:100%!important;min-height:0!important;border-radius:13px!important}
+  #chatView .messengerHead{padding:8px 10px!important}
+  #chatView .messages{padding:9px!important}
+  #chatView .messageComposer{padding:7px!important;gap:5px!important}
+  #chatView .messageComposer textarea,#chatView .messageComposer input{font-size:16px!important;min-height:42px!important}
+  #chatView .messageComposer button{min-width:42px!important;min-height:42px!important}
+
+  /* Touch feedback across the app */
+  .small,.ghost,.primary,.secondary,.square,.mobileNavGrid button,.nav button{touch-action:manipulation}
+  .small:active,.ghost:active,.primary:active,.secondary:active,.mobileNavGrid button:active,.nav button:active{transform:scale(.97)}
+}
+@media(max-width:380px){
+  #calendarView .toolbar{grid-template-columns:1fr!important}
+  #dayView .pageHead{grid-template-columns:1fr!important}
+  #dayDate{width:100%!important}
+}
