@@ -900,3 +900,61 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   .attachBtn,.emojiBtn,.sendCircle{width:40px!important;height:40px!important;min-width:40px!important}
   .messageInput textarea{min-height:40px!important;padding:9px 10px!important}
 }
+
+/* v133 emergency mobile messenger layout fix */
+@media(max-width:700px){
+  #chatView{
+    width:100%!important;max-width:100%!important;
+    height:calc(100dvh - 166px)!important;min-height:0!important;
+    overflow:hidden!important
+  }
+  #chatView .messenger,
+  #chatView .messengerShell{
+    display:block!important;
+    width:100%!important;max-width:100%!important;
+    height:100%!important;min-height:0!important;
+    overflow:hidden!important;border-radius:14px!important
+  }
+  #chatView .dialogSidebar{display:none!important;width:0!important;min-width:0!important}
+  #chatView .conversationPane{
+    display:flex!important;flex-direction:column!important;
+    width:100%!important;max-width:100%!important;min-width:0!important;
+    height:100%!important;min-height:0!important;overflow:hidden!important
+  }
+  #chatView .messengerHead{
+    display:grid!important;grid-template-columns:minmax(0,1fr) 40px 40px!important;
+    width:100%!important;box-sizing:border-box!important;
+    height:58px!important;min-height:58px!important;flex:0 0 58px!important;
+    padding:7px 9px!important;gap:5px!important
+  }
+  #chatView .chatHeadInfo{min-width:0!important;overflow:hidden!important}
+  #chatView .chatHeadInfo>div:last-child{min-width:0!important}
+  #chatView .chatHeadInfo h2,#chatView .chatHeadInfo small{
+    white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important
+  }
+  #chatView .messengerLogo{width:36px!important;height:36px!important;flex:0 0 36px!important}
+  #chatView .chatHeadBtn,#chatView #chatThemeBtn{width:38px!important;height:38px!important;margin:0!important}
+  #chatView .messengerMessages,#chatView .chatMessages{
+    flex:1 1 auto!important;width:100%!important;max-width:100%!important;
+    height:auto!important;min-height:0!important;
+    overflow-y:auto!important;overflow-x:hidden!important;
+    box-sizing:border-box!important;padding:10px 8px 12px!important
+  }
+  #chatView .tgMsg{
+    display:flex!important;width:auto!important;max-width:88%!important;
+    min-width:0!important;box-sizing:border-box!important
+  }
+  #chatView .tgCol{width:auto!important;max-width:calc(100% - 35px)!important;min-width:0!important}
+  #chatView .tgBubble{width:auto!important;max-width:100%!important;min-width:54px!important;box-sizing:border-box!important}
+  #chatView .tgText{width:auto!important;max-width:100%!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+  #chatView .tgActions{max-width:100%!important;flex-wrap:wrap!important}
+  #chatView .quickReact{display:flex!important;flex:0 0 auto!important}
+  #chatView .replyBar,#chatView .filePreview{flex:0 0 auto!important;max-width:100%!important;box-sizing:border-box!important}
+  #chatView .messengerComposer{
+    display:grid!important;grid-template-columns:40px minmax(0,1fr) 40px 40px!important;
+    width:100%!important;max-width:100%!important;box-sizing:border-box!important;
+    flex:0 0 auto!important;padding:6px!important;gap:4px!important
+  }
+  #chatView .messageInput{min-width:0!important;width:100%!important}
+  #chatView .messageInput textarea{width:100%!important;box-sizing:border-box!important}
+}
