@@ -603,3 +603,32 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   .adminTable>*{width:100%!important;box-sizing:border-box!important}
   .topStability>*{min-height:auto!important}
 }
+
+
+/* v126 schedule-first mobile nav + in-app date picker */
+.prettyDate{display:flex;align-items:center;gap:12px;min-width:210px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);color:var(--text);text-align:left}
+.prettyDate span{display:block;font-size:10px;color:var(--muted)}
+.prettyDate b{display:block;flex:1;font-size:13px}.prettyDate i{font-style:normal;font-size:18px}
+.formDate{width:100%;min-width:0;margin-top:7px}
+.datePickerDialog{padding:0;border:0;background:transparent;color:var(--text);width:min(390px,calc(100vw - 20px))}
+.datePickerDialog::backdrop{background:rgba(0,0,0,.68);backdrop-filter:blur(4px)}
+.datePickerBox{padding:15px;border:1px solid var(--line);border-radius:20px;background:var(--panel);box-shadow:0 22px 70px rgba(0,0,0,.45)}
+.datePickerHead{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;text-align:center;margin-bottom:13px}
+.datePickerHead button{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);color:var(--text);font-size:25px}
+.datePickerHead small{display:block;font-size:8px;letter-spacing:.12em;color:var(--muted);margin-bottom:3px}.datePickerHead b{font-size:15px;text-transform:capitalize}
+.datePickerWeek,.datePickerGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.datePickerWeek{margin-bottom:5px}.datePickerWeek span{text-align:center;font-size:9px;color:var(--muted);padding:4px 0}
+.datePickerGrid button{aspect-ratio:1;border:0;border-radius:11px;background:var(--panel2);color:var(--text);font-weight:750;font-size:13px}
+.datePickerGrid button.today{outline:1px solid var(--accent)}.datePickerGrid button.selected{background:var(--accent);color:white}
+.datePickerFoot{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}.datePickerFoot button{min-height:44px}
+@media(max-width:700px){
+ .nav>button[data-view="calendar"]{display:none!important}
+ .nav>button[data-view="schedule"]{display:flex!important}
+ .schedulePageHead{display:flex!important;align-items:flex-start!important;gap:9px!important}
+ .schedulePageHead>div{min-width:0;flex:1}
+ .schedulePageHead .prettyDate{width:auto!important;min-width:0!important;flex:0 0 auto!important;padding:8px 9px!important}
+ .schedulePageHead .prettyDate span{display:none}.schedulePageHead .prettyDate b{font-size:10px!important;max-width:92px}.schedulePageHead .prettyDate i{font-size:15px}
+ .datePickerDialog{margin:auto auto 12px!important;width:calc(100vw - 20px)!important;max-width:390px!important}
+ .datePickerBox{padding:12px!important;border-radius:18px!important}
+ .datePickerGrid{gap:4px!important}.datePickerGrid button{font-size:14px!important}
+}
