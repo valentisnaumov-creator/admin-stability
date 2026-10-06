@@ -1000,3 +1000,32 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   #chatView .replyBar,#chatView .filePreview{padding:6px 9px!important;font-size:9px!important}
   #chatView .mentionSuggest{left:6px!important;right:6px!important;bottom:54px!important;width:auto!important;max-height:190px!important}
 }
+
+/* v135 clean messenger: reactions on demand, actions no longer dominate */
+.tgActions{gap:2px!important;opacity:0!important;margin-top:2px!important;height:26px}
+.tgMsg:hover .tgActions,.tgActions:focus-within{opacity:1!important}
+.tgActions>button{height:25px!important;padding:0 6px!important;font-size:8px!important}
+.tgActions .dangerAction{font-size:16px!important;letter-spacing:2px!important}
+.quickReact{display:none!important}
+.tgReactions{min-height:0!important}
+.tgReactions .reactMsg{height:24px!important;padding:0 7px!important;font-size:10px!important}
+@media(max-width:700px){
+  #chatView .tgMsg{margin-bottom:5px!important}
+  #chatView .tgActions{
+    opacity:.55!important;height:24px!important;margin-top:1px!important;
+    justify-content:flex-start!important;gap:0!important
+  }
+  #chatView .tgMsg.mine .tgActions{justify-content:flex-end!important}
+  #chatView .tgActions>button{
+    width:30px!important;height:24px!important;min-width:30px!important;
+    padding:0!important;font-size:12px!important;background:transparent!important
+  }
+  #chatView .tgActions>button span{display:none!important}
+  #chatView .tgActions .dangerAction{font-size:16px!important}
+  #chatView .tgReactions{gap:3px!important;margin:2px 2px 0!important}
+  #chatView .tgReactions .reactMsg{height:23px!important;padding:0 7px!important;font-size:10px!important}
+  #chatView .tgAvatar{align-self:flex-end!important;margin-bottom:26px!important}
+  #chatView .tgMsg.mine .tgAvatar{display:none!important}
+  #chatView .tgBubble{min-width:48px!important}
+  #chatView .tgAuthor{padding-left:2px!important;padding-right:2px!important}
+}
