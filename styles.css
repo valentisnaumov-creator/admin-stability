@@ -1029,3 +1029,8 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   #chatView .tgBubble{min-width:48px!important}
   #chatView .tgAuthor{padding-left:2px!important;padding-right:2px!important}
 }
+
+/* v137 profile password security */
+.profilePasswordBox{margin-top:16px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--panel2)}
+.profilePasswordBox h3{margin:4px 0 3px;font-size:16px}.profilePasswordBox .muted{margin:0 0 10px}.profilePasswordBox label{display:block;margin-top:8px}.profilePasswordBox button{margin-top:10px;width:100%}
+@media(max-width:700px){.profilePasswordBox{margin-top:12px;padding:11px;border-radius:12px}.profilePasswordBox h3{font-size:15px}.profilePasswordBox input{font-size:16px!important}}
