@@ -229,3 +229,29 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
 
 /* v114 unified profile edit button */
 .profileEditBtn{display:flex!important;align-items:center;gap:8px;width:auto!important;min-width:42px;height:42px;padding:0 12px!important;border-radius:13px!important}.profileEditIcon{font-size:16px}.profileEditText{font-size:10px;font-weight:750;white-space:nowrap}.profileDialog{width:min(600px,calc(100vw - 24px));max-height:90dvh;overflow:auto}.profileDialog #profileForm{display:grid;gap:12px}.profileDialog .profileThemeEditor{margin-top:2px}@media(max-width:760px){.profileEditBtn{width:42px!important;padding:0!important;justify-content:center}.profileEditText{display:none}.profileDialog{width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;border-radius:0}}
+
+
+/* v122 mobile control center + calendar sync visibility */
+.mobilePanelBtn{display:none!important}
+.mobilePanelDialog{width:min(460px,calc(100vw - 24px));max-height:88dvh;overflow:auto}
+.mobilePanelBox{padding:8px}
+.mobilePanelBox h2{margin:6px 0 16px}
+.mobilePanelUser{display:flex;align-items:center;gap:12px;padding:13px;margin-bottom:12px;border:1px solid var(--line);border-radius:15px;background:var(--panel2)}
+.mobilePanelUser .avatar{flex:0 0 42px}
+.mobilePanelUser b,.mobilePanelUser small{display:block}.mobilePanelUser small{margin-top:3px;color:var(--muted)}
+.mobilePanelActions{display:grid;gap:8px}
+.mobilePanelActions>button{display:grid;grid-template-columns:38px 1fr;align-items:center;gap:10px;width:100%;min-height:58px;padding:9px 12px;border:1px solid var(--line);border-radius:14px;background:var(--panel2);color:var(--text);text-align:left;cursor:pointer}
+.mobilePanelActions>button>span b,.mobilePanelActions>button>span small{display:block}
+.mobilePanelActions>button>span small{margin-top:3px;color:var(--muted);font-size:10px}
+.mobilePanelActions>button.danger{color:#ff7185}
+.calSummary{display:inline-flex;align-items:center;gap:4px;margin-left:3px}.calSummary em{font-style:normal;font-size:9px;font-weight:800}.calOk{color:var(--green)}.calOff{color:var(--red)}.calLow{color:var(--yellow)}.calEmpty{color:var(--muted);font-size:8px}
+@media(max-width:700px){
+  .nav{overflow-x:auto;overflow-y:hidden;padding-right:8px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .navSpacer{display:none}
+  .mobilePanelBtn{display:grid!important;place-items:center;position:sticky;right:4px;z-index:5;flex:0 0 44px;background:var(--panel2)!important;box-shadow:-12px 0 18px #0c101a}
+  #themeBtn,#notificationBtn,#profileBtn,#inviteBtn,#rolesBtn,#logoutBtn{display:none!important}
+  .mobilePanelDialog{width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;border-radius:0;padding:18px 14px calc(18px + env(safe-area-inset-bottom,0px));box-sizing:border-box}
+  .mobilePanelActions>button{min-height:64px}
+  .calDay small{display:flex;align-items:center;gap:2px;min-width:0}.calSummary{gap:3px;flex-wrap:wrap}.calSummary em{font-size:8px}
+}
