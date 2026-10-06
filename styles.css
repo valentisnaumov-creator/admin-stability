@@ -521,3 +521,85 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   #chatView{min-height:calc(100dvh - 100px)!important}
   .messengerShell{height:calc(100dvh - 100px)!important;min-height:0!important;border-radius:14px!important}
 }
+
+
+/* v125 rebuilt mobile information architecture */
+@media(max-width:700px){
+  .shell{padding:0 10px calc(82px + env(safe-area-inset-bottom,0px))!important}
+  main{padding-top:8px!important}
+
+  /* Five permanent destinations. */
+  .nav{
+    left:10px!important;right:10px!important;
+    bottom:calc(8px + env(safe-area-inset-bottom,0px))!important;
+    height:66px!important;grid-template-columns:repeat(5,1fr)!important
+  }
+  .nav>button[data-view="home"],
+  .nav>button[data-view="manage"],
+  .nav>button[data-view="calendar"],
+  .nav>button[data-view="chat"]{display:flex!important}
+  .nav>button[data-view="day"],
+  .nav>button[data-view="schedule"],
+  .nav>button[data-view="mystats"],
+  .nav>button[data-view="statsview"]{display:none!important}
+  .mobilePanelBtn{
+    display:flex!important;position:static!important;
+    width:100%!important;height:54px!important;
+    flex-direction:column!important;align-items:center!important;justify-content:center!important;
+    gap:3px!important;padding:3px 2px!important;margin:0!important;
+    border:0!important;border-radius:13px!important;background:transparent!important;
+    box-shadow:none!important;font-size:15px!important;color:var(--muted)!important
+  }
+  .mobilePanelBtn span{display:block!important;font-size:8px!important;font-weight:700!important}
+  .mobilePanelBtn:hover,.mobilePanelBtn:active{background:var(--panel2)!important;color:var(--text)!important}
+
+  /* More is a compact bottom sheet instead of another full-screen settings page. */
+  .mobilePanelDialog{
+    width:100vw!important;height:auto!important;max-height:86dvh!important;
+    margin:auto 0 0!important;padding:0!important;
+    border-radius:22px 22px 0 0!important;
+    overflow:auto!important;background:var(--panel)!important
+  }
+  .mobilePanelDialog::backdrop{background:rgba(0,0,0,.62)!important;backdrop-filter:blur(3px)}
+  .mobilePanelBox{padding:18px 14px calc(18px + env(safe-area-inset-bottom,0px))!important}
+  .mobilePanelBox>h2{font-size:22px!important;margin:3px 0 12px!important}
+  .mobilePanelUser{padding:10px!important;margin-bottom:12px!important;border-radius:13px!important}
+  .mobilePanelUser .avatar{width:38px!important;height:38px!important;flex-basis:38px!important}
+  .mobilePanelActions{display:block!important}
+  .mobileNavGroup{margin:0 0 14px!important}
+  .mobileNavGroup>span,.accountGroup>span{display:block;margin:0 0 7px;padding:0 3px;font-size:8px;font-weight:850;letter-spacing:.12em;color:var(--muted)}
+  .mobileNavGrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .mobileNavGrid button{
+    min-height:68px;padding:10px;border:1px solid var(--line);border-radius:13px;
+    background:var(--panel2);color:var(--text);text-align:left;font-size:19px
+  }
+  .mobileNavGrid button b{display:block;margin-top:7px;font-size:10px}
+  .accountGroup{margin-bottom:6px!important}
+  .mobilePanelActions>button{
+    min-height:50px!important;margin-bottom:6px!important;
+    grid-template-columns:34px 1fr!important;border-radius:12px!important;padding:7px 10px!important
+  }
+  .mobilePanelActions>button>span b{font-size:11px!important}
+  .mobilePanelActions>button>span small{font-size:8px!important}
+
+  /* Home: summary first, details on dedicated screens. */
+  #homeView .quickBar{display:none!important}
+  #homeView .stats{margin-top:0!important}
+  #homeView .dashboardGrid{display:grid!important;gap:9px!important}
+  #homeView .calendarPanel{order:1}
+  #homeView .dailyPanel{order:2}
+  #homeView .topPanel{order:3}
+  .dailyPanel .adminTable>*{min-height:48px!important}
+  .topPanel{margin-bottom:0!important}
+
+  /* Pages use the whole phone width and avoid desktop-looking outer boxes. */
+  #manageView,#calendarView,#dayView,#scheduleView,#mystatsView,#statsviewView{width:100%!important;min-width:0!important}
+  .pageHead{padding:4px 2px!important}
+  .manageToolbar,.toolbar{margin-bottom:8px!important}
+  .manageList,.cards{width:100%!important}
+
+  /* Better compact touch cards. */
+  .staffGrid>*{min-height:auto!important;border-radius:14px!important}
+  .adminTable>*{width:100%!important;box-sizing:border-box!important}
+  .topStability>*{min-height:auto!important}
+}
