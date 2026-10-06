@@ -835,3 +835,68 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   #dayView .pageHead{grid-template-columns:1fr!important}
   #dayDate{width:100%!important}
 }
+
+/* v132 messenger redesign: readable messages + first-class reactions */
+.messengerMessages{padding:18px 20px!important}
+.tgMsg{display:flex;align-items:flex-end;gap:9px;margin:5px 0 12px;max-width:78%}
+.tgMsg.mine{margin-left:auto;flex-direction:row-reverse}
+.tgAvatar{width:34px;height:34px;flex:0 0 34px;border-radius:50%;overflow:hidden;border:0;background:var(--panel2);color:var(--text);font-weight:850;display:grid;place-items:center;padding:0}
+.tgAvatar img{width:100%;height:100%;object-fit:cover}
+.tgCol{min-width:0;max-width:100%;display:flex;flex-direction:column;align-items:flex-start}
+.tgMsg.mine .tgCol{align-items:flex-end}
+.tgAuthor{border:0;background:none;color:var(--text);font-size:10px;font-weight:800;padding:0 5px 4px;cursor:pointer}
+.tgAuthor span{font-size:8px;font-weight:500;color:var(--muted);margin-left:4px}
+.tgBubble{position:relative;min-width:86px;max-width:100%;padding:9px 11px 6px;border:1px solid var(--line);border-radius:6px 17px 17px 17px;background:var(--panel2);box-shadow:0 3px 14px rgba(0,0,0,.12)}
+.tgMsg.mine .tgBubble{border-radius:17px 6px 17px 17px;background:linear-gradient(135deg,#633092,#49266d);border-color:#7940a5}
+.tgText{font-size:13px;line-height:1.42;overflow-wrap:anywhere;white-space:normal}
+.tgFoot{display:flex;justify-content:flex-end;align-items:center;gap:5px;margin-top:4px;color:var(--muted);font-size:8px}
+.tgMsg.mine .tgFoot{color:#d8c7e5}
+.tgFoot .viewCount{border:0;background:none;color:inherit;padding:0;font-size:8px;cursor:pointer}
+.tgQuote{display:block;width:100%;text-align:left;border:0;border-left:3px solid #b76cff;background:#ffffff08;color:inherit;border-radius:5px;padding:5px 7px;margin:0 0 7px;cursor:pointer}
+.tgQuote b,.tgQuote span{display:block;font-size:9px}.tgQuote span{opacity:.72;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tgReactions{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;padding:0 2px}
+.tgReactions:empty{display:none}
+.tgReactions .reactMsg{height:26px;border:1px solid var(--line);border-radius:99px;background:var(--panel2);color:var(--text);padding:0 8px;font-size:11px;cursor:pointer}
+.tgReactions .reactMsg.active{border-color:#a65be3;background:#a855f71e;box-shadow:inset 0 0 0 1px #a855f733}
+.tgActions{display:flex;align-items:center;gap:4px;margin-top:4px;padding:0 2px;opacity:.28;transition:.15s}
+.tgMsg:hover .tgActions,.tgActions:focus-within{opacity:1}
+.tgActions>button,.quickReact button{height:27px;border:0;border-radius:8px;background:transparent;color:var(--muted);padding:0 7px;font-size:9px;cursor:pointer}
+.tgActions>button:hover,.quickReact button:hover{background:var(--panel2);color:var(--text)}
+.quickReact{display:flex;gap:1px;border:1px solid var(--line);border-radius:9px;padding:1px;background:var(--panel)}
+.quickReact button{font-size:13px;padding:0 5px}
+.reactionPanel{position:fixed;z-index:9998;width:300px;max-width:calc(100vw - 20px);padding:9px;border:1px solid var(--line);border-radius:14px;background:var(--panel);box-shadow:0 18px 60px #0009}
+.reactionPanelTitle{padding:2px 4px 7px;font-size:9px;color:var(--muted);font-weight:800;text-transform:uppercase}
+.reactionGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:3px}
+.reactionGrid button{aspect-ratio:1;border:0;border-radius:9px;background:transparent;font-size:20px;cursor:pointer}
+.reactionGrid button:hover{background:var(--panel2);transform:scale(1.08)}
+.messengerComposer{border-top:1px solid var(--line);background:var(--panel);padding:9px 11px!important}
+.messageInput{border:1px solid var(--line);border-radius:15px;background:var(--panel2);overflow:hidden}
+.messageInput textarea{border:0!important;background:transparent!important;min-height:42px;max-height:130px;padding:11px 12px!important}
+.attachBtn,.emojiBtn,.sendCircle{width:42px!important;height:42px!important;min-width:42px!important;border-radius:12px!important}
+.sendCircle{background:linear-gradient(135deg,#a846e6,#7134c7)!important;color:#fff!important}
+
+@media(max-width:700px){
+  #chatView{height:calc(100dvh - 158px)!important;min-height:390px!important}
+  .dialogSidebar{display:none!important}
+  .conversationPane{width:100%!important;min-width:0!important}
+  .messengerMessages{padding:10px 7px 14px!important}
+  .tgMsg{max-width:91%!important;gap:6px!important;margin:3px 0 10px!important}
+  .tgAvatar{width:29px!important;height:29px!important;flex-basis:29px!important}
+  .tgAuthor{font-size:9px!important;padding-bottom:3px!important}
+  .tgAuthor span{font-size:7px!important}
+  .tgBubble{padding:8px 9px 5px!important;border-radius:5px 15px 15px 15px!important}
+  .tgMsg.mine .tgBubble{border-radius:15px 5px 15px 15px!important}
+  .tgText{font-size:13px!important;line-height:1.38!important}
+  .tgFoot{font-size:7px!important}
+  .tgActions{opacity:1!important;gap:2px!important;margin-top:3px!important}
+  .tgActions>button{width:29px!important;height:29px!important;padding:0!important;font-size:13px!important}
+  .tgActions>button span{display:none!important}
+  .quickReact button{width:29px!important;height:29px!important;font-size:14px!important;padding:0!important}
+  .tgReactions .reactMsg{height:27px!important;padding:0 7px!important}
+  .reactionPanel{left:10px!important;right:10px!important;bottom:calc(82px + env(safe-area-inset-bottom,0px))!important;top:auto!important;width:auto!important;max-width:none!important;border-radius:16px!important}
+  .reactionGrid{grid-template-columns:repeat(6,1fr)!important}
+  .reactionGrid button{font-size:22px!important}
+  .messengerComposer{padding:6px!important;gap:4px!important}
+  .attachBtn,.emojiBtn,.sendCircle{width:40px!important;height:40px!important;min-width:40px!important}
+  .messageInput textarea{min-height:40px!important;padding:9px 10px!important}
+}
