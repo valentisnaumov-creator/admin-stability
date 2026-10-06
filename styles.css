@@ -642,3 +642,106 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   .hero h1{font-size:15px!important;line-height:1!important;margin:3px 0 0!important}
   .heroSide{display:none!important}
 }
+
+/* v129 mobile polish pass: phone-first density, hierarchy and touch */
+@media(max-width:700px){
+  html,body{overflow-x:hidden}
+  body{padding-bottom:0!important}
+  .shell{width:100%!important;max-width:none!important;padding:0 10px calc(88px + env(safe-area-inset-bottom,0px))!important}
+  main{padding:8px 0 14px!important}
+  .connection{margin:0 2px 7px!important;font-size:9px!important;min-height:0!important}
+
+  /* compact app identity */
+  .hero{position:sticky!important;top:0!important;z-index:18!important;margin:0 -10px!important;width:calc(100% + 20px)!important}
+  .heroMark{transform:scale(.92)}
+  .hero h1{white-space:nowrap!important}
+  
+  /* app-like bottom navigation */
+  .nav{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:2px!important;padding:5px!important;overflow:visible!important}
+  .nav>button[data-view],.mobilePanelBtn{min-width:0!important;width:100%!important;height:54px!important;padding:3px 1px!important;border-radius:12px!important}
+  .nav>button[data-view]{font-size:18px!important}
+  .nav>button[data-view] span,.mobilePanelBtn span{font-size:8px!important;line-height:1.05!important}
+  .nav>button.active{box-shadow:none!important}
+
+  /* page headings: no desktop-sized empty space */
+  .pageHead{margin:0 0 9px!important;padding:3px 1px!important;align-items:center!important}
+  .pageHead .eyebrow{font-size:7px!important;letter-spacing:.08em!important}
+  .pageHead h2{font-size:18px!important;line-height:1.1!important;margin-top:2px!important}
+  .pageHead>button.primary{min-height:40px!important;padding:8px 10px!important;font-size:10px!important}
+
+  /* home is a glanceable dashboard */
+  #homeView .stats{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  #homeView .stat{min-height:62px!important;padding:8px!important}
+  #homeView .stat:after{display:none!important}
+  #homeView .stat b{font-size:17px!important;margin-top:4px!important}
+  #homeView .stat small{font-size:7px!important}
+  #homeView .calendarPanel{display:none!important}
+  #homeView .dailyPanel{border-radius:14px!important}
+  #homeView .dailyPanel .panelHead h2{font-size:16px!important}
+  #homeView .miniStats{grid-template-columns:repeat(4,minmax(0,1fr))!important;margin:10px 0!important}
+  #homeView .mini{padding:8px 5px!important;text-align:center!important}
+  #homeView .mini span{font-size:7px!important}
+  #homeView .mini b{font-size:16px!important}
+  #homeView .listTitle{display:grid!important;grid-template-columns:1fr!important;gap:6px!important}
+  #homeView .listTitle input{width:100%!important;max-width:none!important}
+  #homeView .adminRow{grid-template-columns:minmax(0,1fr) auto auto!important;gap:6px!important}
+  #homeView .topPanel{display:none!important}
+
+  /* staff cards become compact rows */
+  #manageView .manageToolbar{padding:0!important;background:none!important}
+  #manageView .manageCount{justify-self:start!important}
+  .staffCard{grid-template-columns:40px minmax(0,1fr) auto!important;gap:9px!important;padding:10px!important}
+  .staffAvatar{width:40px!important;height:40px!important;border-radius:11px!important}
+  .staffInfo>b{font-size:13px!important}
+  .staffInfo>span,.staffInfo>small{font-size:9px!important}
+  .staffActions{grid-column:1/-1!important;display:grid!important;grid-template-columns:1fr 1fr!important}
+  .staffActions button{min-height:38px!important}
+
+  /* schedule is the primary phone workflow */
+  #scheduleView .pageHead{align-items:flex-start!important}
+  #scheduleView .pageHead h2{font-size:17px!important}
+  #scheduleView .scheduleSummary{grid-template-columns:1fr 1fr!important;gap:6px!important;margin-bottom:8px!important}
+  #scheduleView .scheduleSummary>div{padding:9px 10px!important;border-radius:12px!important}
+  #scheduleView .scheduleSummary b{font-size:17px!important}
+  #scheduleView .scheduleCoverage{grid-column:1/-1!important}
+  #scheduleView .shiftCard{padding:10px!important;border-radius:13px!important}
+  #scheduleView .shiftTop h3{font-size:16px!important}
+  #scheduleView .shiftTop>b{font-size:15px!important}
+  #scheduleView .shiftPerson,#scheduleView .vacant{min-height:40px!important;padding:7px 9px!important}
+  #scheduleView .shiftAdd select,#scheduleView .shiftAdd button{min-height:42px!important}
+
+  /* More sheet reads as navigation first, settings second */
+  .mobilePanelDialog{max-height:82dvh!important}
+  .mobilePanelBox{padding:14px 12px calc(16px + env(safe-area-inset-bottom,0px))!important}
+  .mobilePanelBox>h2{font-size:19px!important;margin-bottom:9px!important}
+  .mobileNavGrid{gap:6px!important}
+  .mobileNavGrid button{min-height:58px!important;padding:8px!important;font-size:17px!important}
+  .mobileNavGrid button b{margin-top:5px!important;font-size:9px!important}
+  .mobilePanelUser{margin-bottom:9px!important}
+  .mobilePanelActions>button{min-height:46px!important}
+
+  /* dialogs become comfortable bottom sheets */
+  dialog:not(.mediaViewer):not(.datePickerDialog):not(.mobilePanelDialog){
+    width:100%!important;max-width:100%!important;margin:auto 0 0!important;
+    border-radius:20px 20px 0 0!important;max-height:88dvh!important;overflow:auto!important
+  }
+  dialog:not(.mediaViewer):not(.datePickerDialog):not(.mobilePanelDialog) form{padding:17px 13px calc(18px + env(safe-area-inset-bottom,0px))!important}
+  dialog form h2{font-size:20px!important;margin:3px 0 12px!important}
+  dialog label{margin-top:10px!important}
+  dialog input,dialog select,dialog textarea{min-height:44px!important;font-size:16px!important}
+  .staffDialogActions{display:grid!important;grid-template-columns:1fr!important}
+  #staffForm>.primary,#staffForm>.secondary,#staffForm>.danger{min-height:46px!important}
+
+  /* norm page: cards and controls fit one hand */
+  #dayView .pageHead{align-items:center!important}
+  #dayView .normEditor{border-radius:14px!important}
+  .normEditRow{grid-template-columns:minmax(0,1fr) 82px 52px!important;gap:7px!important}
+  .hoursInput{height:42px!important;font-size:16px!important}
+  .inactiveToggle i{width:46px!important;height:26px!important}
+}
+@media(max-width:390px){
+  #homeView .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #homeView .miniStats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .hero h1{font-size:14px!important}
+  .nav>button[data-view],.mobilePanelBtn{font-size:16px!important}
+}
