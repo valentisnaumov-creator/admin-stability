@@ -255,3 +255,130 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   .mobilePanelActions>button{min-height:64px}
   .calDay small{display:flex;align-items:center;gap:2px;min-width:0}.calSummary{gap:3px;flex-wrap:wrap}.calSummary em{font-size:8px}
 }
+
+
+/* v123 mobile: persistent account control + usable account manager */
+@media(max-width:700px){
+  /* Account panel control must stay visible while the top navigation scrolls. */
+  .mobilePanelBtn{
+    display:grid!important;
+    place-items:center!important;
+    position:fixed!important;
+    top:max(10px,env(safe-area-inset-top,0px))!important;
+    right:10px!important;
+    z-index:10020!important;
+    width:44px!important;
+    height:44px!important;
+    flex:none!important;
+    margin:0!important;
+    border:1px solid var(--line)!important;
+    border-radius:13px!important;
+    background:var(--panel2)!important;
+    box-shadow:0 8px 28px rgba(0,0,0,.32)!important;
+  }
+
+  /* The account manager is a real full-screen mobile view, never a desktop
+     two-column canvas hidden behind the editor. */
+  #rolesDialog{
+    inset:0!important;
+    width:100vw!important;
+    height:100dvh!important;
+    max-width:none!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    overflow:hidden!important;
+    z-index:10030!important;
+  }
+  #rolesDialog .rolesBox{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    padding:14px 12px calc(14px + env(safe-area-inset-bottom,0px))!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  #rolesDialog #rolesList{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    overflow:auto!important;
+    margin-top:8px!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  #rolesDialog .accessLayout{
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:100%!important;
+    overflow:visible!important;
+    border-radius:14px!important;
+  }
+  #rolesDialog .accessUsers{
+    flex:0 0 auto!important;
+    width:100%!important;
+    max-height:none!important;
+    overflow:visible!important;
+    padding:10px!important;
+    border-right:0!important;
+    border-bottom:1px solid #273149!important;
+    box-sizing:border-box!important;
+  }
+  #rolesDialog .accessUsers>input{
+    position:sticky!important;
+    top:0!important;
+    z-index:3!important;
+    height:46px!important;
+    margin-bottom:9px!important;
+  }
+  #rolesDialog #accessUserList{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:7px!important;
+    width:100%!important;
+  }
+  #rolesDialog .accessUser{
+    position:relative!important;
+    z-index:1!important;
+    width:100%!important;
+    min-height:58px!important;
+    padding:10px 12px!important;
+    touch-action:manipulation!important;
+    pointer-events:auto!important;
+  }
+  #rolesDialog .accessUserAvatar{
+    width:40px!important;
+    height:40px!important;
+    flex-basis:40px!important;
+  }
+  #rolesDialog .accessUser b{font-size:13px!important}
+  #rolesDialog .accessUser small{font-size:10px!important}
+
+  /* Selected account editor is below the account list instead of covering it. */
+  #rolesDialog .accessEditor{
+    display:flex!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    min-height:0!important;
+    overflow:visible!important;
+    box-sizing:border-box!important;
+  }
+  #rolesDialog .accessEditorHead{padding:16px 12px!important}
+  #rolesDialog .accessForm{
+    flex:none!important;
+    overflow:visible!important;
+    padding:14px 12px 92px!important;
+  }
+  #rolesDialog .floatingAccountSave{
+    position:sticky!important;
+    left:auto!important;
+    right:auto!important;
+    bottom:8px!important;
+    width:calc(100% - 24px)!important;
+    margin:0 12px 10px!important;
+    z-index:20!important;
+  }
+  #rolesDialog .accessInlineSave{margin-bottom:8px!important}
+}
