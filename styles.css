@@ -958,3 +958,45 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
   #chatView .messageInput{min-width:0!important;width:100%!important}
   #chatView .messageInput textarea{width:100%!important;box-sizing:border-box!important}
 }
+
+/* v134 mobile home dashboard + messenger finishing pass */
+@media(max-width:700px){
+  /* Home: actionable summary instead of a desktop report */
+  #homeView #todayProgress{padding:11px!important;border-radius:14px!important;margin-bottom:7px!important}
+  #homeView .todayProgressTop{align-items:center!important}
+  #homeView .todayProgressTop span{font-size:8px!important}
+  #homeView .todayProgressTop b{font-size:20px!important}
+  #homeView .todayProgressTop small{font-size:8px!important}
+  #homeView .bigProgress{height:6px!important;margin:8px 0!important}
+  #homeView .todayChips{display:grid!important;grid-template-columns:1fr 1fr!important;gap:5px!important}
+  #homeView .todayChips span{padding:6px 7px!important;border-radius:8px!important;background:var(--panel2)!important;font-size:8px!important}
+  #homeView .stats{gap:5px!important;margin-bottom:7px!important}
+  #homeView .stat{min-height:54px!important;padding:7px!important}
+  #homeView .stat span{font-size:7px!important;line-height:1.15!important}
+  #homeView .stat b{font-size:16px!important}
+  #homeView .dailyPanel{padding:9px!important}
+  #homeView .dailyPanel .panelHead{margin-bottom:5px!important}
+  #homeView .dailyPanel .panelHead h2{font-size:14px!important}
+  #homeView .miniStats{margin:6px 0!important}
+  #homeView .adminTable{max-height:265px!important;overflow:auto!important;padding-right:2px!important}
+  #homeView .adminTable>*{min-height:44px!important;padding:7px 8px!important}
+  #homeView .listTitle{margin:5px 0!important}
+  #homeView .listTitle input{height:36px!important}
+
+  /* Messenger: make the chat look native on a phone */
+  #chatView .messengerHead{border-radius:0!important}
+  #chatView .messengerMessages{scrollbar-width:none!important}
+  #chatView .messengerMessages::-webkit-scrollbar{display:none}
+  #chatView .tgMsg{margin-bottom:8px!important}
+  #chatView .tgMsg.mine .tgAvatar{display:none!important}
+  #chatView .tgMsg.mine .tgCol{max-width:100%!important}
+  #chatView .tgMsg.mine{max-width:84%!important}
+  #chatView .tgAuthor{max-width:100%!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  #chatView .tgBubble{box-shadow:none!important}
+  #chatView .tgReactions{margin-top:3px!important}
+  #chatView .tgActions{height:30px!important;overflow:visible!important;flex-wrap:nowrap!important}
+  #chatView .quickReact{height:30px!important}
+  #chatView .quickReact button,#chatView .tgActions>button{height:28px!important}
+  #chatView .replyBar,#chatView .filePreview{padding:6px 9px!important;font-size:9px!important}
+  #chatView .mentionSuggest{left:6px!important;right:6px!important;bottom:54px!important;width:auto!important;max-height:190px!important}
+}
