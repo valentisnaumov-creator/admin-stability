@@ -3,6 +3,7 @@
   "name": "admin-stability",
   "main": "worker.js",
   "compatibility_date": "2026-10-07",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
