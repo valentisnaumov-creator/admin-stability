@@ -11,3 +11,5 @@
     "run_worker_first": ["/api/*"]
   }
 }
+
+// deploy-trigger: 2026-10-07-v145
