@@ -36,6 +36,28 @@ export default {
       }
     }
 
+    if (url.pathname.startsWith("/api/supabase/")) {
+      const targetPath = url.pathname.slice("/api/supabase".length);
+      if (!targetPath.startsWith("/rest/v1/") && !targetPath.startsWith("/auth/v1/") && !targetPath.startsWith("/storage/v1/")) {
+        return Response.json({ error: "NOT_ALLOWED" }, { status: 403 });
+      }
+      const target = new URL("https://iguotkyyjatilbzunvsw.supabase.co" + targetPath + url.search);
+      const headers = new Headers(request.headers);
+      headers.set("apikey", "sb_publishable_sK5sa-kr558LAdQLxf_lhw_ENZ9z8kA");
+      headers.delete("host");
+      headers.delete("origin");
+      headers.delete("referer");
+      const upstream = await fetch(target, {
+        method: request.method,
+        headers,
+        body: ["GET","HEAD"].includes(request.method) ? undefined : request.body,
+        redirect: "follow"
+      });
+      const outHeaders = new Headers(upstream.headers);
+      outHeaders.set("Cache-Control","no-store");
+      return new Response(upstream.body,{status:upstream.status,headers:outHeaders});
+    }
+
     return env.ASSETS.fetch(request);
   }
 };
