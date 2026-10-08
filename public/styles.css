@@ -1034,3 +1034,27 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
 .profilePasswordBox{margin-top:16px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--panel2)}
 .profilePasswordBox h3{margin:4px 0 3px;font-size:16px}.profilePasswordBox .muted{margin:0 0 10px}.profilePasswordBox label{display:block;margin-top:8px}.profilePasswordBox button{margin-top:10px;width:100%}
 @media(max-width:700px){.profilePasswordBox{margin-top:12px;padding:11px;border-radius:12px}.profilePasswordBox h3{font-size:15px}.profilePasswordBox input{font-size:16px!important}}
+
+/* v178 — desktop navigation: readable spacing, no overlapping role/name */
+@media (min-width:1101px){
+  #app .shell{max-width:1680px}
+  #app .nav{min-height:78px;height:auto;gap:4px;padding:10px 14px;flex-wrap:nowrap;justify-content:flex-start}
+  #app .navBrand{flex:0 0 36px;margin-right:7px}
+  #app .nav>button[data-view]{flex:0 1 auto;min-width:0;max-width:126px;padding:7px 10px;height:52px;line-height:1.25;display:flex;align-items:center;justify-content:center;gap:5px;white-space:normal;text-align:center;font-size:12px}
+  #app .nav>button[data-view] span{font-size:12px;line-height:1.25;display:inline}
+  #app .nav>button.active{box-shadow:inset 0 0 0 1px #a64ce8}
+  #app .nav .userBox{min-width:160px;max-width:230px;padding:4px 8px;margin-left:auto;gap:8px;flex-shrink:0}
+  #app .userBox>div:last-child{min-width:0;overflow:hidden}
+  #app #userName{display:block;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:1.35}
+  #app #userRole{display:block;max-width:190px;white-space:normal;line-height:1.2;margin:3px 0}
+  #app #userRole span{font-size:10px!important;padding:3px 6px!important;margin:1px!important}
+  #app #userEmail{display:block;max-width:190px;font-size:10px}
+  #app .nav .round{flex-shrink:0;width:36px;height:38px}
+}
+@media (min-width:1101px) and (max-width:1450px){
+  #app .nav>button[data-view]{font-size:11px;padding:6px 7px;max-width:106px}
+  #app .nav>button[data-view] span{font-size:11px}
+  #app .nav .userBox{min-width:140px;max-width:175px}
+  #app #userName,#app #userRole,#app #userEmail{max-width:140px}
+  #app .navBrand{display:none}
+}
