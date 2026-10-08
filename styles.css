@@ -1259,3 +1259,28 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
  .nav #mobilePanelBtn{margin-right:auto!important}
  .nav .userBox{flex:0 1 165px!important;max-width:165px!important}
 }
+
+
+/* v190: consistent compact action buttons in the right header */
+@media(min-width:701px){
+ .nav #notificationBtn,.nav #themeBtn,.nav #profileBtn,.nav #inviteBtn,.nav #rolesBtn,.nav #logoutBtn{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  position:relative!important;flex:0 0 40px!important;width:40px!important;min-width:40px!important;
+  max-width:40px!important;height:40px!important;min-height:40px!important;
+  margin:0!important;padding:0!important;border:1px solid var(--line)!important;
+  border-radius:12px!important;background:var(--panel2)!important;color:var(--text)!important;
+  font-size:19px!important;line-height:1!important;vertical-align:middle!important;
+  box-shadow:none!important;transform:none!important;
+ }
+ .nav #notificationBtn:hover,.nav #themeBtn:hover,.nav #profileBtn:hover,.nav #inviteBtn:hover,.nav #rolesBtn:hover,.nav #logoutBtn:hover{
+  background:#31213f!important;border-color:#9450ca!important
+ }
+ .nav #notificationBtn span#notificationBadge{position:absolute!important;top:-5px!important;right:-5px!important}
+ .nav #profileBtn .profileEditIcon{display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:18px!important}
+ .nav #profileBtn .profileEditText{display:none!important}
+ .nav>button[hidden]{display:none!important}
+}
+@media(min-width:701px) and (max-width:900px){
+ .nav #notificationBtn,.nav #themeBtn,.nav #profileBtn,.nav #inviteBtn,.nav #rolesBtn,.nav #logoutBtn{
+ flex-basis:34px!important;width:34px!important;min-width:34px!important;max-width:34px!important;height:36px!important;min-height:36px!important;font-size:17px!important}
+}
