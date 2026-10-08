@@ -1222,3 +1222,40 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
  .nav .userBox{min-width:0!important;overflow:hidden!important}
  .nav .userBox b,.nav .userBox small{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
 }
+
+
+/* v189: unified header instead of two large empty horizontal strips */
+@media(min-width:1181px){
+ .shell{display:grid!important;grid-template-columns:minmax(360px,0.95fr) minmax(0,1.65fr)!important;align-items:stretch!important;column-gap:0!important}
+ .shell>.hero{grid-column:1!important;grid-row:1!important;min-width:0!important;height:84px!important;min-height:84px!important;margin:0!important;padding:12px 14px 12px 22px!important;border-radius:18px 0 0 18px!important;border-right:0!important;gap:12px!important;overflow:hidden!important}
+ .shell>.hero .heroMark{width:42px!important;height:47px!important;min-width:42px!important;font-size:27px!important}
+ .shell>.hero h1{font-size:clamp(19px,1.65vw,25px)!important;line-height:1.04!important}
+ .shell>.heroSide{display:block!important;font-size:8px!important;line-height:1.35!important;white-space:nowrap!important;margin-left:auto!important}
+ .shell>.nav{grid-column:2!important;grid-row:1!important;position:relative!important;top:auto!important;height:84px!important;min-height:84px!important;margin:0!important;padding:12px 14px!important;border-radius:0 18px 18px 0!important;border-left:0!important;background:linear-gradient(90deg,#14111e,#0c101a)!important;display:flex!important;flex-wrap:nowrap!important;gap:8px!important;justify-content:flex-end!important}
+ .shell>.nav .navBrand{display:none!important}
+ .shell>.nav #mobilePanelBtn{order:0!important;margin-right:auto!important;flex-shrink:0!important}
+ .shell>.nav .navSpacer{display:none!important}
+ .shell>.nav .userBox{order:1!important;flex:0 1 210px!important;max-width:210px!important;min-width:125px!important;justify-self:auto!important;padding:6px 9px!important;background:#ffffff08!important;border:1px solid #ffffff12!important;border-radius:12px!important}
+ .shell>.nav #notificationBtn{order:2!important}
+ .shell>.nav #themeBtn{order:3!important}
+ .shell>.nav #profileBtn{order:4!important}
+ .shell>.nav #inviteBtn{order:5!important}
+ .shell>.nav #rolesBtn{order:6!important}
+ .shell>.nav #logoutBtn{order:7!important}
+ .shell>.nav>button[hidden]{display:none!important}
+ .shell>main{grid-column:1 / -1!important;grid-row:2!important}
+}
+@media(min-width:701px) and (max-width:1180px){
+ .nav{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-end!important;gap:7px!important}
+ .nav .navBrand{display:none!important}
+ .nav #mobilePanelBtn{margin-right:auto!important;flex:0 0 auto!important}
+ .nav .navSpacer{display:none!important}
+ .nav .userBox{flex:0 1 220px!important;min-width:120px!important;max-width:220px!important}
+ .nav #themeBtn,.nav #profileBtn{display:inline-flex!important}
+ .nav>button[hidden]{display:none!important}
+}
+@media(max-width:700px){
+ .nav .navBrand{display:none!important}
+ .nav #mobilePanelBtn{margin-right:auto!important}
+ .nav .userBox{flex:0 1 165px!important;max-width:165px!important}
+}
