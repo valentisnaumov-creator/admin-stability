@@ -1094,3 +1094,5 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
 .appConfirmActions .primary{background:linear-gradient(110deg,#a34ee2,#6c31b7);color:#fff;border:0}
 .appConfirmActions .dangerAction{background:#ae304b;color:white;border:0}
 @media(max-width:600px){.appConfirmBody{padding:19px}.appConfirmActions button{flex:1}}
+
+.revokeAllRoles{display:block;width:100%;margin-top:10px;border:1px solid #a74462;border-radius:12px;background:#471c30;color:#ffadbf;padding:12px 15px;font-weight:750;cursor:pointer}.revokeAllRoles:hover{background:#6b2942}
