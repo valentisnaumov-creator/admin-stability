@@ -1156,3 +1156,31 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
  #rolesDialog #extraRolesChoices{grid-template-columns:minmax(0,1fr)!important}
  #rolesDialog .accessEditorHead{padding:0 0 14px!important}
 }
+
+
+/* v186: one compact desktop menu, same navigation as on phone */
+@media(min-width:701px){
+ .nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:12px!important;min-height:68px!important;height:auto!important;padding:10px 18px!important;overflow:visible!important}
+ .nav .navBrand{display:grid!important;place-items:center!important;flex:0 0 40px!important;width:40px!important;height:40px!important}
+ .nav>button[data-view]{display:none!important}
+ .nav #mobilePanelBtn{display:inline-flex!important;position:static!important;flex:0 0 auto!important;align-items:center!important;justify-content:center!important;gap:9px!important;width:auto!important;min-width:116px!important;height:44px!important;min-height:44px!important;padding:8px 16px!important;border:1px solid #75439e!important;border-radius:13px!important;background:#321a49!important;color:#f5eaff!important;font-size:20px!important;cursor:pointer!important;box-shadow:none!important}
+ .nav #mobilePanelBtn span{display:inline!important;font-size:14px!important;font-weight:750!important}
+ .nav .navSpacer{display:block!important;flex:1 1 auto!important}
+ .nav .userBox{display:flex!important;flex:0 1 270px!important;min-width:0!important;max-width:270px!important}
+ .nav #themeBtn,.nav #notificationBtn,.nav #profileBtn,.nav #rolesBtn,.nav #inviteBtn,.nav #logoutBtn{display:inline-flex!important;flex:0 0 auto!important}
+ .nav #profileBtn .profileEditText{display:none!important}
+ .nav #profileBtn{min-width:42px!important;width:42px!important;max-width:42px!important}
+ .mobilePanelDialog{width:min(660px,calc(100vw - 36px))!important;max-width:660px!important;max-height:min(86dvh,850px)!important;height:auto!important;overflow-y:auto!important;border:1px solid #39304f!important;border-radius:22px!important;background:#0e1220!important;color:#f4f2fa!important}
+ .mobilePanelDialog .mobilePanelBox{width:100%!important;max-width:none!important;padding:24px!important;box-sizing:border-box!important}
+ .mobilePanelDialog .mobileNavGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+ .mobilePanelDialog .mobileNavGrid button{min-width:0!important;min-height:64px!important;padding:12px!important;font-size:16px!important}
+ .mobilePanelDialog .mobileNavGrid button b{font-size:13px!important;line-height:1.3!important;overflow-wrap:anywhere!important}
+}
+@media(min-width:701px) and (max-width:1040px){
+ .nav .userBox{max-width:190px!important}
+ .nav #themeBtn,.nav #profileBtn{display:none!important}
+}
+@media(max-width:700px){
+ .mobilePanelDialog .mobileNavGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .mobilePanelDialog .mobileNavGrid button{min-height:56px!important}
+}
