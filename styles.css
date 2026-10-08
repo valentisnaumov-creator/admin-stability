@@ -1034,3 +1034,17 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
 .profilePasswordBox{margin-top:16px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--panel2)}
 .profilePasswordBox h3{margin:4px 0 3px;font-size:16px}.profilePasswordBox .muted{margin:0 0 10px}.profilePasswordBox label{display:block;margin-top:8px}.profilePasswordBox button{margin-top:10px;width:100%}
 @media(max-width:700px){.profilePasswordBox{margin-top:12px;padding:11px;border-radius:12px}.profilePasswordBox h3{font-size:15px}.profilePasswordBox input{font-size:16px!important}}
+
+/* v183 unified native-site dialogs */
+.appConfirmDialog{position:fixed;inset:0;margin:auto;width:min(460px,calc(100vw - 32px));max-height:min(80vh,720px);overflow:auto;padding:0;border:1px solid #654078;border-radius:20px;background:linear-gradient(150deg,#1d152b,#101521 75%);color:#f7f3ff;box-shadow:0 30px 100px #000b,0 0 0 1px #a855f722}
+.appConfirmDialog::backdrop{background:#04050ac9;backdrop-filter:blur(7px)}
+.appConfirmBody{padding:25px}
+.appConfirmBody h3{font-size:20px;margin:0 0 12px;font-weight:800}
+.appConfirmBody p{font-size:14px;color:#c5bfd0;line-height:1.6;margin:0 0 22px;white-space:pre-wrap}
+.appConfirmBody textarea{width:100%;resize:vertical;background:#0c101a;color:#fff;border:1px solid #424056;border-radius:12px;padding:12px;min-height:125px;margin-bottom:15px}
+.appConfirmActions{display:flex;justify-content:flex-end;gap:10px}
+.appConfirmActions button{border-radius:11px;min-height:42px;padding:9px 18px;font-weight:750;cursor:pointer}
+.appConfirmActions .ghost{background:#262635;color:#ece9f5;border:1px solid #3c3b4d}
+.appConfirmActions .primary{background:linear-gradient(110deg,#a34ee2,#6c31b7);color:#fff;border:0}
+.appConfirmActions .dangerAction{background:#ae304b;color:white;border:0}
+@media(max-width:600px){.appConfirmBody{padding:19px}.appConfirmActions button{flex:1}}
