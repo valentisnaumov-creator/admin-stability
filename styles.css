@@ -1184,3 +1184,41 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
  #rolesDialog .multiRoleChoice{width:auto!important;min-height:38px!important;padding:8px 10px!important}
  .mobilePanelDialog .mobileNavGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
 }
+
+
+/* v188: balanced navigation layout, preserving all original controls */
+@media(min-width:701px){
+ .nav{display:grid!important;grid-template-columns:36px auto minmax(20px,1fr) minmax(175px,240px) auto auto auto auto auto auto!important;align-items:center!important;column-gap:10px!important;min-height:64px!important;padding:9px 18px!important;overflow:visible!important}
+ .nav .navBrand{grid-column:1!important;order:0!important}
+ .nav #mobilePanelBtn{grid-column:2!important;order:0!important;white-space:nowrap!important}
+ .nav .navSpacer{grid-column:3!important;display:block!important;min-width:0!important}
+ .nav .userBox{grid-column:4!important;order:0!important;width:100%!important;max-width:none!important;min-width:0!important;justify-self:end!important;padding:5px 9px!important;border-radius:12px!important}
+ .nav .userBox>div:last-child{min-width:0!important;overflow:hidden!important}
+ .nav .userBox b,.nav .userBox small{display:block!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+ .nav #notificationBtn{grid-column:5!important;order:0!important}
+ .nav #themeBtn{grid-column:6!important;order:0!important}
+ .nav #profileBtn{grid-column:7!important;order:0!important}
+ .nav #inviteBtn{grid-column:8!important;order:0!important}
+ .nav #rolesBtn{grid-column:9!important;order:0!important}
+ .nav #logoutBtn{grid-column:10!important;order:0!important}
+ .nav #themeBtn,.nav #notificationBtn,.nav #profileBtn,.nav #inviteBtn,.nav #rolesBtn,.nav #logoutBtn{margin:0!important;justify-self:center!important}
+ .nav>button[hidden]{display:none!important}
+}
+@media(min-width:701px) and (max-width:1100px){
+ .nav{grid-template-columns:34px auto minmax(0,1fr) minmax(145px,200px) repeat(6,34px)!important;column-gap:6px!important;padding:8px 12px!important}
+ .nav .userBox{padding:4px 6px!important}
+ .nav #themeBtn,.nav #profileBtn{display:inline-flex!important}
+}
+@media(min-width:701px) and (max-width:850px){
+ .nav{grid-template-columns:32px auto minmax(0,1fr) minmax(125px,175px) repeat(6,32px)!important;column-gap:4px!important;padding:8px!important}
+ .nav #mobilePanelBtn{min-width:78px!important;padding:5px 8px!important}
+ .nav #mobilePanelBtn span{font-size:11px!important}
+ .nav .userBox .avatar{width:30px!important;height:30px!important;min-width:30px!important}
+ .nav .userBox small{font-size:8px!important}
+}
+@media(max-width:700px){
+ .nav{display:flex!important;align-items:center!important;gap:7px!important}
+ .nav .navSpacer{flex:1 1 auto!important;min-width:0!important}
+ .nav .userBox{min-width:0!important;overflow:hidden!important}
+ .nav .userBox b,.nav .userBox small{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+}
