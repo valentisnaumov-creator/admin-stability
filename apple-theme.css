@@ -21,3 +21,20 @@ body #app button:active{transform:scale(.97)}
 .appleThemeClose{margin-top:17px;width:100%;border-radius:12px;background:#394967;color:white;border:1px solid #667799;padding:11px;cursor:pointer}
 @media(max-width:650px){body #app .quickActions #globalCmdLaunch,body #app .quickActions #controlHubBtn{flex:1 1 calc(50% - 6px)!important;font-size:12px!important;padding:10px 8px!important}body #app .quickBar{overflow:visible!important}}
 @media(prefers-reduced-motion:reduce){body #app button{transition:none!important}}
+
+/* Single-hue design system: every selected color controls the whole UI */
+:root{--apple-soft:#63b4ff;--apple-deep:#0753a0;--apple-pale:#b6dcff}
+body #app .primary,body #app button.primary,body #app .quickActions #globalCmdLaunch,body #app .quickActions #controlHubBtn,#appleThemeButton{background:linear-gradient(125deg,var(--apple-accent),var(--apple-deep))!important;border-color:var(--apple-soft)!important;color:#fff!important}
+body #app .heroMark,body #app .navBrand,body #app .mobileBottomNav button.active,body #app .mobileNavGrid button.active,body #app .nav button.active{background:linear-gradient(130deg,var(--apple-accent),var(--apple-deep))!important;border-color:var(--apple-soft)!important;color:white!important}
+body #app .quickBar,body #app .todayProgress,body #app .panel,body #app .stat,body #app .card,body #app .dashboardGrid>section{border-color:color-mix(in srgb,var(--apple-accent) 27%,#64718a)!important}
+body #app .eyebrow,body #app .purpleIcon,body #app a,body #app .active,body #app .selected{accent-color:var(--apple-accent)}
+body #app .eyebrow{color:var(--apple-soft)!important}
+body #app input:focus,body #app textarea:focus,body #app select:focus{outline-color:var(--apple-accent)!important;border-color:var(--apple-accent)!important}
+body #app button:focus-visible,body #app a:focus-visible{outline:2px solid var(--apple-soft)!important;outline-offset:2px}
+body #app .progressFill,body #app progress::-webkit-progress-value{background:var(--apple-accent)!important}
+body #app .stat:hover,body #app .card:hover{border-color:color-mix(in srgb,var(--apple-accent) 55%,#65738e)!important}
+#globalCmdBox,#controlHubDialog{border-color:var(--apple-soft)!important}
+#controlHubDialog .hubHead{background:linear-gradient(120deg,var(--apple-deep),var(--apple-accent))!important}
+#controlHubDialog .hubActions button,#controlHubDialog .hubIssue button{border-color:var(--apple-soft)!important}
+#appleThemeDialog .appleColor[aria-pressed=true]{border-color:var(--apple-accent)!important}
+body #app .quickActions #globalCmdLaunch,body #app .quickActions #controlHubBtn{background:linear-gradient(125deg,var(--apple-accent),var(--apple-deep))!important}
