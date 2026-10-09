@@ -28,3 +28,6 @@ html body dialog#datePickerDialog[open] .unifiedDialogClose{position:absolute!im
 
 /* v220: appointment day has no norm input */
 .normNewRow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;margin:7px 0;background:#24334b;border:1px solid #516785;border-radius:14px;flex-wrap:wrap}.normNewRow .normPerson{flex:1;min-width:150px}.normNewRow .normNewBadge{display:inline-flex;align-items:center;justify-content:center;padding:6px 14px;border-radius:999px;background:#24556a;color:#8af0f4;font-weight:700;font-size:12px}.normNewRow>small{font-size:12px;color:#b7c7df}
+
+/* v221: clean daily overview values and appointment badge */
+#homeDayList .adminRow{min-width:0;align-items:center}#homeDayList .adminRow .dayHours{white-space:nowrap;font-variant-numeric:tabular-nums;font-size:13px;min-width:90px;text-align:right;overflow:visible;overflow-wrap:normal;word-break:normal}#homeDayList .adminRow .adminName{min-width:0}#homeDayList .adminRow .badge.new{background:#164d64;color:#80e5fa;border-radius:999px;padding:6px 12px}#homeDayList .adminRow.new{border-color:#36718a}#homeDayList .adminRow.new .dayHours{color:#9fb6ce;font-size:12px}#dayMiniStats .mini b{font-variant-numeric:tabular-nums}
