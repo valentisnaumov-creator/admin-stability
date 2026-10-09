@@ -1,0 +1,23 @@
+/* Apple Liquid Glass accent and theme selector, October 2026 */
+:root{--apple-accent:#0A84FF;--apple-rgb:10,132,255}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif!important}
+body #app .quickActions{display:flex!important;flex-wrap:wrap!important;gap:10px!important;align-items:stretch!important}
+body #app .quickActions #globalCmdLaunch,body #app .quickActions #controlHubBtn{position:static!important;inset:auto!important;right:auto!important;bottom:auto!important;transform:none!important;float:none!important;max-width:none!important;min-width:0!important;flex:1 1 145px!important;white-space:normal!important;box-shadow:inset 0 1px 0 #ffffff35,0 4px 12px #0002!important}
+body #app .quickActions #globalCmdLaunch{background:linear-gradient(120deg,var(--apple-accent),#396aa6)!important}
+body #app .quickActions #controlHubBtn{background:linear-gradient(120deg,var(--apple-accent),#5157ab)!important}
+body #app button.primary,body #app .primary{background:linear-gradient(120deg,var(--apple-accent),color-mix(in srgb,var(--apple-accent) 65%,#b3d9ff))!important;color:#fff!important}
+body #app .quickBar,body #app .panel,body #app .stat,body #app .todayProgress,body #app .card{border-radius:24px!important;border:1px solid rgba(220,235,255,.20)!important;box-shadow:inset 0 1px 0 #ffffff16,0 8px 26px #0002!important}
+body #app button,body #app .card{transition:transform .28s cubic-bezier(.22,1.35,.4,1),box-shadow .25s ease}
+body #app button:active{transform:scale(.97)}
+#appleThemeButton{background:linear-gradient(125deg,var(--apple-accent),#3d599b);border:1px solid #ffffff55;color:#fff;padding:11px 15px;border-radius:14px;font-weight:750;cursor:pointer;min-height:43px}
+#appleThemeDialog{border:1px solid #ffffff50;border-radius:24px;background:#202a40;color:#f7faff;width:min(440px,calc(100vw - 30px));padding:20px;box-shadow:0 25px 80px #0009}
+#appleThemeDialog::backdrop{background:#070b17b8;backdrop-filter:blur(8px)}
+#appleThemeDialog h2{margin:0 0 6px;font-size:23px}
+#appleThemeDialog p{color:#bdcbe0;margin:0 0 18px}
+.appleColors{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.appleColor{display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid #5a6781;background:#2c3851;color:white;border-radius:15px;padding:10px 5px;cursor:pointer;font-size:12px}
+.appleColor i{display:block;width:100%;height:40px;border-radius:10px;background:var(--swatch)}
+.appleColor[aria-pressed=true]{border:2px solid var(--apple-accent);padding:9px 4px;background:#384663}
+.appleThemeClose{margin-top:17px;width:100%;border-radius:12px;background:#394967;color:white;border:1px solid #667799;padding:11px;cursor:pointer}
+@media(max-width:650px){body #app .quickActions #globalCmdLaunch,body #app .quickActions #controlHubBtn{flex:1 1 calc(50% - 6px)!important;font-size:12px!important;padding:10px 8px!important}body #app .quickBar{overflow:visible!important}}
+@media(prefers-reduced-motion:reduce){body #app button{transition:none!important}}
