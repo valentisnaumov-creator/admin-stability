@@ -33,3 +33,9 @@
 #mobilePanelDialog .mobilePanelActions>#creatorSelfPasswordButton{position:static!important;inset:auto!important;transform:none!important;float:none!important;display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;text-align:left!important;margin:5px 0!important;padding:14px 16px!important;border-radius:16px!important;font-size:14px!important;font-weight:700!important;box-shadow:inset 0 1px 0 #ffffff22!important}
 #mobilePanelDialog .mobilePanelActions>#creatorSelfPasswordButton[hidden],
 #mobilePanelDialog .mobilePanelActions>#appleThemeButton[hidden]{display:none!important}
+
+.creatorPasswordReset{display:grid;gap:12px;margin-top:20px;padding:18px;border-radius:20px;border:1px solid color-mix(in srgb,var(--apple-accent) 40%,#506078);background:color-mix(in srgb,var(--apple-accent) 8%,#182235)}
+.creatorPasswordReset h3{margin:0;font-size:18px}.creatorPasswordReset p{margin:0;font-size:13px;color:#b5c4da;line-height:1.5}
+.creatorPasswordReset label{display:grid;gap:7px;font-size:13px;font-weight:700}.creatorPasswordReset input{width:100%;box-sizing:border-box;border:1px solid #536683;border-radius:12px;background:#111a2b;color:#fff;padding:12px;font-size:15px}
+.creatorResetActions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.creatorResetActions button{padding:12px 9px;min-width:0;border-radius:12px;border:1px solid var(--apple-soft,#63b4ff);background:#27374f;color:#fff;font-weight:700;cursor:pointer}.creatorResetActions #creatorApplyPassword{background:var(--apple-accent,#0A84FF)}.creatorResetActions #creatorCopyPassword{grid-column:1/-1}
+.creatorPasswordReset small{font-size:12px;line-height:1.5;color:#b6c9e3}
