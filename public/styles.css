@@ -1262,3 +1262,12 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
  body:not(.guestMode) #app:not([hidden]) .nav .navBrand,body:not(.guestMode) #app:not([hidden]) .nav .navSpacer,body:not(.guestMode) #app:not([hidden]) .nav .userBox,body:not(.guestMode) #app:not([hidden]) .nav #notificationBtn,body:not(.guestMode) #app:not([hidden]) .nav #themeBtn,body:not(.guestMode) #app:not([hidden]) .nav #profileBtn,body:not(.guestMode) #app:not([hidden]) .nav #inviteBtn,body:not(.guestMode) #app:not([hidden]) .nav #rolesBtn,body:not(.guestMode) #app:not([hidden]) .nav #logoutBtn{display:none!important}
  body:not(.guestMode) #app:not([hidden]){padding-bottom:85px!important}
 }
+
+
+/* v196 accessible floating messages above all application panels */
+.globalToast{position:fixed!important;z-index:2147483000!important;top:calc(16px + env(safe-area-inset-top,0px))!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-16px)!important;display:flex!important;align-items:flex-start!important;gap:12px!important;width:min(440px,calc(100vw - 24px))!important;max-width:none!important;padding:15px!important;background:#221b2d!important;color:#f6f0ff!important;border:1px solid #b67aff!important;border-radius:16px!important;box-shadow:0 16px 55px #000a!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .2s,transform .2s!important}
+.globalToast.show{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translate(-50%,0)!important}
+.globalToast.success{border-color:#39c98a!important;background:#122c27!important}.globalToast.info{border-color:#74a8ff!important}
+.globalToast .toastSymbol{display:grid;place-items:center;flex:0 0 27px;height:27px;border-radius:9px;background:#9d4edd;color:white;font-weight:900}
+.globalToast.success .toastSymbol{background:#218e65}.globalToast>div{display:grid;gap:5px;flex:1;min-width:0}.globalToast strong{font-size:14px}.globalToast>div>span{font-size:13px;line-height:1.4;overflow-wrap:anywhere}.globalToast>button{border:0;background:transparent;color:inherit;font-size:24px;line-height:1;cursor:pointer;padding:0 2px}
+@media(max-width:700px){.globalToast{top:calc(12px + env(safe-area-inset-top,0px))!important;padding:13px!important}}
