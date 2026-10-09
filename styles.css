@@ -1404,3 +1404,24 @@ dialog[open] input[readonly]{user-select:all}
  dialog[open] .profileHero{display:flex!important;align-items:center!important;gap:12px!important;min-width:0}
  dialog[open] .profileHero>div{min-width:0}
 }
+
+
+/* v199: role editor interaction redesign */
+.accessEditor .accessForm{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:15px!important;min-width:0!important}
+.accessEditor .accessForm>label{display:flex!important;flex-direction:column!important;gap:7px!important;min-width:0!important}
+.accessEditor .accessForm input:not([type=checkbox]),.accessEditor .accessForm select{box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:43px!important;border-radius:11px!important}
+.accessEditor .multiRoleEditor{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;padding:14px!important;border-radius:15px!important;background:#161b2a!important;border:1px solid #54446a!important;overflow:visible!important}
+.accessEditor .multiRoleTitle{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:5px!important;margin-bottom:12px!important}
+.accessEditor .multiRoleTitle b{font-size:15px!important}.accessEditor .multiRoleTitle small{font-size:12px!important;line-height:1.45!important;color:#b6b4c7!important}
+.accessEditor .multiRoleToolbar{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap!important;gap:8px!important;margin:0 0 12px!important}
+.accessEditor #extraRoleCount{font-size:12px!important;font-weight:700!important;color:#dbb9ff!important}
+.accessEditor #clearExtraRoles{min-height:33px!important;padding:6px 11px!important;font-size:12px!important;border-radius:9px!important}
+.accessEditor .multiRoleChoices{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;min-width:0!important;max-width:100%!important}
+.accessEditor .multiRoleChoice{display:flex!important;flex-direction:row!important;align-items:center!important;gap:10px!important;box-sizing:border-box!important;min-width:0!important;min-height:48px!important;margin:0!important;padding:10px!important;border:1px solid #44445b!important;border-radius:11px!important;background:#222638!important;cursor:pointer!important;transition:background .15s,border-color .15s!important}
+.accessEditor .multiRoleChoice.selected{border-color:#a879e9!important;background:#39294e!important}
+.accessEditor .multiRoleChoice:has(input:disabled){opacity:.48!important;cursor:not-allowed!important}
+.accessEditor .multiRoleChoice input[type=checkbox]{appearance:auto!important;display:block!important;position:static!important;opacity:1!important;flex:0 0 18px!important;width:18px!important;height:18px!important;min-width:18px!important;min-height:18px!important;margin:0!important;accent-color:#b084f5!important;pointer-events:auto!important}
+.accessEditor .multiRoleChoice span{min-width:0!important;font-size:12px!important;line-height:1.3!important;overflow-wrap:anywhere!important}
+.accessEditor .accessInlineSave{min-height:46px!important;border-radius:11px!important}
+.accessEditor .revokeAllRoles{min-height:42px!important;border-radius:11px!important}
+@media(max-width:520px){.accessEditor .multiRoleChoices{grid-template-columns:minmax(0,1fr)!important}.accessEditor .multiRoleEditor{padding:12px!important}.accessEditor .multiRoleChoice{min-height:46px!important}}
