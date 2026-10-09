@@ -48,3 +48,48 @@ dialog::backdrop{background:rgba(29,62,103,.28)!important;backdrop-filter:blur(8
 @media(hover:hover){#app button:hover,.authCard button:hover,dialog button:hover{box-shadow:0 8px 20px rgba(10,132,255,.14)!important}}
 @media(max-width:700px){.authCard{padding:22px!important;border-radius:27px!important}#app .mobileBottomNav{background:rgba(246,251,255,.78)!important;border-radius:20px 20px 0 0!important}#rolesDialog .rolesBox{background:rgba(239,248,255,.94)!important}#rolesDialog .accessUser{background:rgba(255,255,255,.72)!important}}
 @media(prefers-reduced-motion:reduce){#app button,.authCard button,dialog button{transition:none!important}}
+
+
+/* v208: repair legacy dark components, preserve accessible contrast */
+:root,body,body.light{--bg:#edf7ff!important;--panel:rgba(255,255,255,.77)!important;--panel2:rgba(247,251,255,.80)!important;--panel3:#e6f2ff!important;--line:rgba(120,164,207,.24)!important;--text:#152238!important;--muted:#5e7189!important;--purple:#0a84ff!important;--purple2:#5b9df6!important}
+body .hero{background:linear-gradient(115deg,rgba(255,255,255,.88),rgba(200,235,255,.69),rgba(236,223,255,.68))!important;border:1px solid rgba(255,255,255,.95)!important;box-shadow:0 12px 35px rgba(40,89,145,.1)!important;color:#152238!important}
+body .hero h1,body .hero h1 b,body .hero span,body .hero .heroSide,body .hero .heroSide b{color:#162943!important}
+body .heroMark,body .navBrand{background:linear-gradient(135deg,#40baff,#0a84ff)!important;color:white!important;box-shadow:0 8px 18px rgba(10,132,255,.20)!important}
+body #app .stat,body #app .mini,body #app .todayProgress,body #app .todayChips>*,body #app .topCard,body #app .calDay,body #app .adminRow,body #app .manageRow,body #app .dayRow,body #app .staffCard,body #app .normCard,body #app .scheduleSlot,body #app .scheduleRow,body #app .infoCard,body #app .quickBar,body #app .alertsItem,body #app .attentionItem{
+background:rgba(255,255,255,.66)!important;
+color:#172b45!important;border:1px solid rgba(145,179,212,.29)!important;
+box-shadow:0 5px 20px rgba(59,100,153,.055)!important;
+backdrop-filter:blur(24px) saturate(160%)!important;-webkit-backdrop-filter:blur(24px) saturate(160%)!important}
+body #app .stat,body #app .mini{border-radius:18px!important}
+body #app .todayProgress{border-radius:24px!important;padding:17px!important}
+body #app .todayChips>*{border-radius:12px!important;padding:10px!important}
+body #app .stat span,body #app .mini span,body #app .todayProgressTop span,body #app .todayProgressTop small,body #app .adminName small{color:#5a6e86!important}
+body #app .stat b,body #app .mini b,body #app .todayProgressTop b,body #app .adminName b{color:#152238!important}
+body #app .bigProgress{background:rgba(10,132,255,.12)!important}
+body #app .bigProgress i{background:linear-gradient(90deg,#3fb6ff,#0a84ff)!important}
+body #app .badge.none{background:#e4effb!important;color:#4f637b!important}
+body #app .badge.norm{background:#d8f7e7!important;color:#16784c!important}
+body #app .badge.inactive{background:#ffe4e8!important;color:#b52f4e!important}
+body #app .purpleIcon{background:linear-gradient(135deg,#51b8ff,#0a84ff)!important;color:#fff!important;border-radius:12px!important}
+body #app .adminTable{background:rgba(255,255,255,.32)!important;border-color:rgba(140,177,215,.25)!important}
+body #app .adminRow{border-radius:12px!important}
+body #app .nav,body #app .mobileBottomNav{background:rgba(245,251,255,.88)!important;border:1px solid rgba(255,255,255,.95)!important;box-shadow:0 8px 25px rgba(45,89,146,.14)!important}
+body #app .nav button,body #app .mobileBottomNav button{color:#526780!important}
+body #app .nav button.active,body #app .mobileBottomNav button.active{color:#fff!important}
+body #app .nav button.active *,body #app .mobileBottomNav button.active *{color:#fff!important}
+body #app .countPill{background:#e5f3ff!important;color:#2076bc!important}
+body #app .listTitle b{color:#172b45!important}
+body #app .topCard .rank{background:#e0f2ff!important;color:#137bd4!important}
+@media(max-width:700px){
+body .hero{height:auto!important;min-height:106px!important;padding:16px!important;border-radius:0 0 22px 22px!important}
+body .hero h1{font-size:21px!important;line-height:1.08!important}
+body #app .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+body #app .stat{min-height:92px!important;padding:12px!important}
+body #app .stat b{font-size:24px!important}
+body #app .miniStats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+body #app .mini{min-height:73px!important;padding:10px!important}
+body #app .mini b{font-size:20px!important}
+body #app .todayChips{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+body #app .dailyPanel{padding:14px!important}
+body #app .mobileBottomNav{border-radius:22px 22px 0 0!important}
+}
