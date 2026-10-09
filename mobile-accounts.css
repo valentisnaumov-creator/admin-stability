@@ -59,3 +59,19 @@ body #rolesDialog[open]>.rolesBox{display:block!important;width:100%!important;m
 #rolesDialog #extraRolesChoices .multiRoleChoice{min-height:41px!important;height:auto!important;padding:8px 11px!important;border-radius:10px!important}
 #rolesDialog #rolesList[hidden],#rolesDialog .accessUser[hidden],#rolesDialog #accessFilters[hidden]{display:none!important}
 }
+
+
+/* v204: independent compact role picker, no inherited legacy multiRole layout */
+#rolesDialog .roleCompact{display:block!important;box-sizing:border-box!important;position:static!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:13px!important;overflow:visible!important;border:1px solid #514265!important;border-radius:13px!important;background:#1a1e2d!important}
+#rolesDialog .roleCompactTitle{display:block!important;position:static!important;width:100%!important;height:auto!important;min-height:0!important;margin:0 0 9px!important;padding:0!important}
+#rolesDialog .roleCompactTitle b{display:block!important;font-size:15px!important;line-height:1.3!important}
+#rolesDialog .roleCompactTitle small{display:block!important;font-size:12px!important;line-height:1.4!important;margin-top:4px!important;color:#a9aabe!important}
+#rolesDialog .roleCompactToolbar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;margin:0 0 9px!important;padding:0!important;height:auto!important;min-height:0!important}
+#rolesDialog .roleCompactChoices{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-content:start!important;align-items:stretch!important;gap:7px!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;overflow:visible!important}
+#rolesDialog .roleCompactChoice{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;box-sizing:border-box!important;gap:9px!important;width:100%!important;min-width:0!important;min-height:42px!important;height:auto!important;margin:0!important;padding:9px 10px!important;border:1px solid #3c4056!important;border-radius:10px!important;background:#202437!important;cursor:pointer!important}
+#rolesDialog .roleCompactChoice.selected{border-color:#ad78e8!important;background:#372a4d!important}
+#rolesDialog .roleCompactChoice:has(input:disabled){opacity:.5!important}
+#rolesDialog .roleCompactChoice input[type=checkbox]{display:block!important;appearance:auto!important;position:static!important;opacity:1!important;flex:0 0 18px!important;width:18px!important;height:18px!important;min-width:18px!important;min-height:18px!important;margin:0!important;accent-color:#aa74f0!important}
+#rolesDialog .roleCompactChoice span{font-size:12px!important;line-height:1.3!important;overflow-wrap:anywhere!important}
+#rolesDialog .accessResultCount{font-size:12px!important;color:#a9aabe!important;margin:0 0 8px!important}
+@media(max-width:700px){#rolesDialog .roleCompactChoices{grid-template-columns:minmax(0,1fr)!important}#rolesDialog .roleCompact{padding:12px!important}}
