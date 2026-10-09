@@ -180,3 +180,56 @@ html,body{background:#10141f!important}
 #app .mobileBottomNav{padding:7px!important;gap:4px!important;border-radius:20px 20px 0 0!important;background:#1b2234!important}
 #app .mobileBottomNav button{border-radius:14px!important}
 }
+
+
+/* v215 — iOS compact controls, grouped lists and polished dialogs */
+@media(max-width:900px){
+#app .shell{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))!important}
+#app .pageHead{padding:6px 2px 2px!important;margin-bottom:12px!important}
+#app .pageHead .eyebrow{font-size:10px!important;letter-spacing:.07em!important;color:#9baeea!important}
+#app .pageHead h2{font-size:24px!important;line-height:1.14!important;letter-spacing:-.04em!important}
+#app .pageHead small{line-height:1.35!important;color:#aab7ce!important}
+#app .staffGrid,#app .manageList{gap:9px!important}
+#app #manageView .manageToolbar{display:flex!important;flex-wrap:wrap!important;gap:8px!important;padding:10px!important;margin-bottom:10px!important;background:#20283a!important;border:0!important;border-radius:17px!important}
+#app #manageView .manageToolbar input{min-width:100px!important;flex:1 1 100%!important}
+#app #manageView .staffCard{display:grid!important;grid-template-columns:42px minmax(0,1fr)!important;gap:9px 11px!important;padding:12px!important;background:#222b40!important;border:0!important}
+#app #manageView .staffAvatar{width:42px!important;height:42px!important;font-size:15px!important;border-radius:12px!important}
+#app #manageView .staffInfo{min-width:0!important}
+#app #manageView .staffInfo>b{font-size:14px!important}
+#app #manageView .staffInfo>span{font-size:11px!important}
+#app #manageView .staffCards{grid-column:1/-1!important;display:flex!important;gap:7px!important}
+#app #manageView .staffCards>span{border-radius:9px!important;background:#2d3952!important;padding:5px 9px!important}
+#app #manageView .staffActions{grid-column:1/-1!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
+#app #manageView .staffActions button{min-width:0!important;padding:9px 5px!important;font-size:12px!important;background:#303d58!important;color:#dfe7fa!important;border:0!important;border-radius:11px!important}
+#app #calendarView .toolbar{display:flex!important;flex-wrap:wrap!important;gap:8px!important;padding:10px!important;border-radius:16px!important}
+#app #calendarView .toolbar input{flex:1 1 160px!important}
+#app #calendarView .toolbar select{flex:1 1 120px!important}
+#app #calendarView .cards{gap:9px!important}
+#app #dayView .normEditor{padding:12px!important;background:#20283a!important;border:0!important;border-radius:20px!important}
+#app #dayView .normEditorHead{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:10px!important;margin-bottom:10px!important}
+#app #dayView .normEditorHead b{font-size:17px!important}
+#app #dayView .normEditorHead span{font-size:11px!important;line-height:1.35!important}
+#app #dayView .normEditorActions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+#app #dayView .normEditorActions button{min-width:0!important;font-size:12px!important;padding:10px 6px!important}
+#app #dayView .normEditorActions button:last-child{grid-column:1/-1!important}
+#app #dayView .normTools{display:flex!important;flex-wrap:wrap!important;gap:8px!important;padding:9px!important;background:#263147!important;border:0!important;border-radius:14px!important}
+#app #dayView .normTools input[type="text"],#app #dayView .normTools input:not([type]){flex:1 1 100%!important}
+#app #dayView .normEditRow{background:#273249!important;border:0!important;margin-bottom:7px!important}
+#app #dayView .normEditRow input.hoursInput{min-height:40px!important;border-radius:11px!important}
+#app #scheduleView .shiftCard{border-color:#3b4961!important}
+#app #scheduleView .shiftCard.empty{border-left:3px solid #d47c91!important}
+#app #scheduleView .shiftCard.partial{border-left:3px solid #d5ae6c!important}
+#app #scheduleView .shiftCard.full{border-left:3px solid #6ac9a2!important}
+#app #scheduleView .shiftStatus{font-size:11px!important;line-height:1.3!important;margin:8px 0!important}
+#app #scheduleView .shiftTop h3{font-size:19px!important}
+#app #scheduleView .shiftPerson,#app #scheduleView .vacant{font-size:12px!important;min-height:40px!important}
+#app #scheduleView .shiftPerson small{font-size:10px!important}
+#app #scheduleView .shiftPeople{gap:6px!important}
+#app #scheduleView .shiftCard button{min-height:40px!important}
+#app #scheduleView .shiftCard select{font-size:14px!important}
+#app .mobileBottomNav{left:9px!important;right:9px!important;width:calc(100% - 18px)!important;bottom:calc(7px + env(safe-area-inset-bottom,0px))!important;border-radius:21px!important;padding:6px!important;background:#1d2638!important;border:1px solid #3c4961!important}
+#app .mobileBottomNav button{padding:8px 2px!important;min-height:54px!important;border:0!important;font-size:11px!important;gap:3px!important}
+#app .mobileBottomNav button.active{background:#415a94!important;border:0!important}
+body dialog:not(.mediaViewer),body .authCard{border-radius:22px!important;background:#20283a!important;border:1px solid #46536b!important}
+body dialog button,body dialog input,body dialog select{border-radius:12px!important}
+}
