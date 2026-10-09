@@ -12,3 +12,5 @@ html body #app #homeView #todayLabel{font-size:19px!important;font-weight:700!im
 html body #app #homeView .quickBar .quickActions{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;width:auto!important;background:transparent!important;border:0!important}
 html body #app #homeView .quickBar .quickActions button{min-height:39px!important;padding:8px 13px!important;font-size:12px!important}
 }
+
+@media(min-width:901px){html body #app #homeView>.quickBar{display:none!important}}
