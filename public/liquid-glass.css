@@ -60,3 +60,74 @@ body #app .todayChips{display:grid!important;grid-template-columns:repeat(2,minm
 body #app .mobileBottomNav{background:#222a40!important}
 body #app .stat:after{display:none!important}
 }
+
+
+/* v213 — Apple-inspired unified cards; no GPU-heavy glass blur */
+:root,body,body.light{--bg:#141925!important;--panel:#202738!important;--panel2:#252e41!important;--panel3:#2d3850!important;--line:#39465d!important;--text:#f5f6fa!important;--muted:#aab7ce!important;--purple:#8299ff!important;--purple2:#b1bfff!important}
+html,body{background:#141925!important;color:#f5f6fa!important;letter-spacing:-.012em!important;-webkit-font-smoothing:antialiased}
+#app .shell{max-width:1480px}
+#app main{gap:16px}
+#app .hero{background:#20283a!important;border:1px solid #38465e!important;border-radius:24px!important;box-shadow:none!important;padding:20px 24px!important}
+#app .hero h1{letter-spacing:-.055em!important;font-weight:750!important;line-height:1.04!important}
+#app .heroMark,#app .navBrand{border-radius:16px!important;background:#7790f9!important}
+#app .nav{border-radius:19px!important;padding:8px!important;gap:5px!important}
+#app .nav button{border-radius:12px!important}
+#app .nav button.active{background:#34466f!important;color:#eaf0ff!important;border:1px solid #52699e!important;box-shadow:none!important}
+#app .nav button.active *{color:#eaf0ff!important}
+#app .pageHead{margin-bottom:15px!important;gap:12px!important}
+#app .pageHead h2,#app .panelHead h2{font-weight:720!important;letter-spacing:-.04em!important;line-height:1.14!important}
+#app .panelHead{gap:12px!important}
+#app .panelHead .purpleIcon{border-radius:11px!important;width:35px!important;height:35px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
+#app .quickBar,#app .todayProgress,#app .panel,#app .stat,#app .mini,#app .topCard,#app .staffCard,#app .normEditor,#app .normEditRow,#app .scheduleSummary,#app .scheduleSlot,#app .scheduleRow,#app .scheduleCard,#app .dayRow,#app .adminRow,#app .infoCard,#app .attentionItem,#app .alertsItem,#app .inactiveNowList>*,#app .calendarPanel,#app .dailyPanel,#app .staffGrid>*,#app .cards>*,#app .dayClosePanel,#app .dayTotals,#app .manageToolbar,#app .toolbar,#app .messenger,#app .dialogSidebar,#app .conversationPane,#app .mystatsCard,#app .securityCard,#app .profileCard,#app .statCard,#app .widget,#app .card,#app .calDay,#app .quickActions,#app .normTools{
+background:#20283a!important;color:#f5f6fa!important;border:1px solid #39465e!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#app .panel,#app .todayProgress,#app .quickBar,#app .normEditor,#app .messenger,#app .statCard,#app .card,#app .widget,#app .staffCard,#app .scheduleCard,#app .securityCard,#app .profileCard{border-radius:22px!important}
+#app .stat,#app .mini,#app .topCard,#app .calDay,#app .adminRow,#app .normEditRow,#app .scheduleSlot,#app .scheduleRow,#app .attentionItem,#app .alertsItem,#app .dayRow,#app .infoCard,#app .staffGrid>*,#app .cards>*,#app .inactiveNowList>*{border-radius:16px!important}
+#app .stat{background:#252e42!important;min-width:0!important}
+#app .stat b{font-weight:740!important;font-size:clamp(26px,4vw,37px)!important;letter-spacing:-.055em!important}
+#app .stat span,#app .stat small,#app .mini span{font-size:12px!important;line-height:1.35!important}
+#app .todayProgress{background:#242e44!important}
+#app .todayProgress .todayProgressTop b{font-weight:750!important;letter-spacing:-.035em!important}
+#app .todayChips>*{background:#2d3850!important;border-radius:12px!important}
+#app .panel{padding:17px!important}
+#app .calDay{background:#293347!important;padding:8px 4px!important;min-width:0!important}
+#app .calDay.selected{background:#394e7e!important;border-color:#8199ff!important}
+#app .calDay.other{opacity:.48}
+#app .calDay b{font-weight:650!important}
+#app .adminRow,#app .normEditRow,#app .staffCard,#app .scheduleSlot,#app .attentionItem,#app .alertsItem{background:#273147!important}
+#app .staffAvatar,#app .tinyAvatar,#app .avatar{background:#394e7c!important;color:#eef2ff!important;border-radius:14px!important}
+#app button,#app input,#app select,#app textarea{font-family:inherit!important}
+#app button:not(.calDay),.authCard button,dialog button{border-radius:12px!important}
+#app .primary,.authCard .primary,dialog .primary{background:#7a92f6!important;border:1px solid #9cadff!important;color:#10192f!important;font-weight:720!important;box-shadow:none!important}
+#app .primary *,dialog .primary *{color:#10192f!important}
+#app .ghost,#app .secondary,#app .square,#app .round,dialog .ghost,dialog .secondary{background:#2e3950!important;color:#e4eaf8!important;border:1px solid #455570!important}
+#app input,#app select,#app textarea,.authCard input,dialog input,dialog select,dialog textarea{border-radius:12px!important;background:#171f30!important;border:1px solid #475673!important;color:#f5f6fa!important;min-height:40px}
+#app input:focus,#app select:focus,#app textarea:focus{outline:2px solid #8299ff!important;outline-offset:1px!important}
+#app .segmented{background:#151e2e!important;border:1px solid #39465e!important;border-radius:13px!important;padding:3px!important}
+#app .segmented button{border-radius:10px!important}
+#app .segmented button.active{background:#354b77!important;color:#f5f6fa!important}
+#app .status,#app .badge,#app .countPill{border-radius:999px!important}
+#app .purpleIcon{background:#34476e!important;color:#b7c6ff!important}
+#app .bigProgress{background:#36445f!important;border-radius:999px!important}
+#app .bigProgress i{background:#8299ff!important;border-radius:999px!important}
+#app .staffProgress{background:#37445d!important;border-radius:999px!important}
+#app .staffProgress i{background:#8299ff!important;border-radius:999px!important}
+#app .week{color:#aab7ce!important}
+#app .calSummary{font-size:10px!important}
+#app .normTableHead,#app .manageToolbar,#app .toolbar{background:#1b2333!important}
+#app .messengerHead,#app .dialogSideHead,#app .messengerComposer{background:#252f44!important;border-color:#39465e!important}
+.authCard,dialog,#rolesDialog .rolesBox,#rolesDialog .accessEditor,#rolesDialog .accessUsers{background:#20283a!important;color:#f5f6fa!important;border:1px solid #46536b!important;border-radius:24px!important;box-shadow:none!important;backdrop-filter:none!important}
+@media(max-width:900px){
+#app .shell{padding-left:12px!important;padding-right:12px!important}
+#app main{gap:11px!important}
+#app .hero{border-radius:19px!important;padding:14px 15px!important}
+#app .panel,#app .quickBar,#app .todayProgress,#app .normEditor,#app .staffCard,#app .card{border-radius:18px!important;padding:13px!important}
+#app .stat{border-radius:16px!important;min-height:80px!important;padding:12px!important}
+#app .stats{gap:9px!important}
+#app .panelHead h2{font-size:17px!important}
+#app .pageHead h2{font-size:23px!important}
+#app .mobileBottomNav{background:#20283a!important;border:1px solid #39465e!important;border-radius:18px 18px 0 0!important;box-shadow:none!important}
+#app .mobileBottomNav button{color:#b8c5df!important;border-radius:12px!important}
+#app .mobileBottomNav button.active{background:#364c7b!important;color:#fff!important;border-color:#586fa5!important}
+#app .calDay{border-radius:11px!important}
+#app .quickActions{background:transparent!important;border:none!important}
+}
