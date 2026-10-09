@@ -1,0 +1,14 @@
+/* Calendar status colors */
+#cards .staffDay{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;min-width:0;padding:3px 2px;text-align:center;overflow:hidden}
+#cards .staffDay b{font-size:13px;line-height:1.2}
+#cards .staffDay small{display:block!important;visibility:visible!important;opacity:1!important;font-size:clamp(8px,.7vw,11px);line-height:1.15;white-space:normal;overflow-wrap:anywhere;font-weight:700}
+#cards .staffDay.norm,.staffCalDate.norm{color:#52e8a0!important;border-color:#248458!important;background:rgba(25,130,79,.13)!important}
+#cards .staffDay.low,.staffCalDate.low{color:#ff6475!important;border-color:#9a3545!important;background:rgba(189,49,65,.15)!important}
+#cards .staffDay.inactive,.staffCalDate.inactive{color:#ffd260!important;border-color:#a87b24!important;background:rgba(176,127,28,.14)!important}
+#cards .staffDay.new,.staffCalDate.new{color:#7ac7ff!important;border-color:#397bb0!important;background:rgba(51,119,188,.13)!important}
+#cards .staffDay.none,.staffCalDate.missing{color:#a6b4ce}
+#cards .staffDay:disabled{cursor:default;opacity:1}
+.status.low{color:#ff6475!important;background:rgba(189,49,65,.17)!important}
+.status.inactive{color:#ffd260!important;background:rgba(176,127,28,.17)!important}
+.status.norm{color:#52e8a0!important}
+@media(max-width:700px){#cards .staffDay small{font-size:9px}#cards .staffDay{min-height:49px}}
