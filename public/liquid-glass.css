@@ -93,3 +93,45 @@ body #app .todayChips{display:grid!important;grid-template-columns:repeat(2,minm
 body #app .dailyPanel{padding:14px!important}
 body #app .mobileBottomNav{border-radius:22px 22px 0 0!important}
 }
+
+
+/* v209 — pink liquid glass, strong readable contrast */
+:root,body,body.light{
+--bg:#f7ddeb!important;--panel:rgba(255,239,248,.70)!important;--panel2:rgba(255,228,244,.76)!important;--panel3:#f7cbe3!important;--line:rgba(188,89,146,.25)!important;--text:#352039!important;--muted:#75546f!important;--purple:#e83d96!important;--purple2:#ff74bc!important;--glass-accent:#e83d96!important;--glass-text:#352039!important;--glass-muted:#75546f!important;color-scheme:light!important}
+html,body{background:#f4d6e8!important;color:#352039!important}
+body{background:radial-gradient(ellipse at 8% 5%,#ffeaf5 0%,transparent 45%),radial-gradient(ellipse at 93% 22%,#f9a7d5 0%,transparent 42%),radial-gradient(ellipse at 10% 90%,#e6b5f7 0%,transparent 45%),linear-gradient(135deg,#fce5f2,#efb7d7 49%,#dbb5ef 82%,#ffe4f1)!important;background-attachment:fixed!important}
+body:before{background:radial-gradient(ellipse 55% 13% at 80% 24%,rgba(242,63,160,.22),transparent 90%),radial-gradient(ellipse 70% 12% at 15% 78%,rgba(154,73,202,.18),transparent 90%)!important}
+body .hero{background:linear-gradient(115deg,rgba(255,234,247,.86),rgba(248,183,222,.66),rgba(227,188,246,.7))!important;border:1px solid rgba(255,235,248,.9)!important;box-shadow:0 12px 35px rgba(142,51,107,.13)!important}
+body .hero h1,body .hero h1 b,body .hero span,body .hero .heroSide,body .hero .heroSide b{color:#402345!important}
+body .heroMark,body .navBrand{background:linear-gradient(135deg,#ff86c5,#df3491)!important;box-shadow:0 8px 20px rgba(224,52,145,.25)!important;color:#fff!important}
+#app .nav,#app header,#app .topbar,#app .sidebar,#app .mobileBottomNav,#app .mobilePanel,#app .quickBar,#app .mobileNavGrid,#app .mobilePanelDialog,#app .card,#app .panel,#app .statCard,#app .statBox,#app .widget,#app .calendar,#app .dayCard,#app .scheduleCard,.authCard,dialog:not(.appConfirmDialog),dialog .rolesBox,dialog .accessEditor,dialog .accessUsers,dialog .accessUser,#rolesDialog .roleCompact,#rolesDialog .roleCompactChoice{
+background:rgba(255,237,247,.68)!important;color:#352039!important;border:1px solid rgba(255,237,248,.8)!important;
+box-shadow:0 12px 35px rgba(141,53,106,.10),inset 0 1px 0 rgba(255,255,255,.8)!important;backdrop-filter:blur(32px) saturate(170%)!important;-webkit-backdrop-filter:blur(32px) saturate(170%)!important}
+body #app .stat,body #app .mini,body #app .todayProgress,body #app .todayChips>*,body #app .topCard,body #app .calDay,body #app .adminRow,body #app .manageRow,body #app .dayRow,body #app .staffCard,body #app .normCard,body #app .scheduleSlot,body #app .scheduleRow,body #app .infoCard,body #app .quickBar,body #app .alertsItem,body #app .attentionItem{
+background:rgba(255,238,248,.70)!important;color:#38253e!important;border:1px solid rgba(191,102,153,.25)!important;box-shadow:0 5px 20px rgba(143,62,111,.08)!important}
+#app h1,#app h2,#app h3,#app h4,#app b,#app strong,dialog h2,dialog h3,body #app .stat b,body #app .mini b,body #app .todayProgressTop b,body #app .adminName b,body #app .listTitle b{color:#352039!important}
+#app .muted,#app small,#app p,dialog .muted,dialog small,body #app .stat span,body #app .mini span,body #app .todayProgressTop span,body #app .todayProgressTop small,body #app .adminName small{color:#75546f!important}
+#app .primary,.authCard .primary,dialog .primary,#app button.active,#app .nav button.active,#app .mobileBottomNav button.active,body #app .nav button.active,body #app .mobileBottomNav button.active,#rolesDialog .accessFilters button.active,#rolesDialog .accessToolbar button.active{
+background:linear-gradient(145deg,#ff78bc,#e83d96)!important;color:white!important;border:1px solid rgba(255,255,255,.32)!important;box-shadow:0 7px 20px rgba(232,61,150,.25)!important}
+#app .primary *,dialog .primary *,body #app .nav button.active *,body #app .mobileBottomNav button.active *{color:white!important}
+#app .nav,body #app .nav,body #app .mobileBottomNav,#app .mobileBottomNav{background:rgba(255,231,245,.87)!important;border:1px solid rgba(255,238,249,.93)!important;box-shadow:0 8px 25px rgba(143,52,106,.16)!important}
+body #app .nav button,body #app .mobileBottomNav button{color:#815b7c!important}
+#app input,#app select,#app textarea,.authCard input,dialog input,dialog select,dialog textarea{background:rgba(255,246,251,.80)!important;color:#352039!important;border:1px solid rgba(183,101,150,.28)!important}
+#app input:focus,#app select:focus,#app textarea:focus,.authCard input:focus,dialog input:focus{outline:2px solid rgba(232,61,150,.38)!important}
+#app .secondary,#app .ghost,.authCard .secondary,dialog .ghost,dialog .secondary{background:rgba(255,239,248,.73)!important;color:#ad276d!important;border:1px solid rgba(188,97,152,.28)!important}
+body #app .badge.none{background:#f5d9e9!important;color:#76516e!important}
+body #app .badge.norm{background:#dcf5e6!important;color:#196d4b!important}
+body #app .badge.inactive{background:#ffd9e1!important;color:#ad294a!important}
+body #app .purpleIcon{background:linear-gradient(135deg,#ff8aca,#e83d96)!important;color:#fff!important}
+body #app .bigProgress{background:rgba(232,61,150,.13)!important}
+body #app .bigProgress i{background:linear-gradient(90deg,#ff8ac8,#e83d96)!important}
+body #app .countPill{background:#fbd3e9!important;color:#a5256b!important}
+body #app .topCard .rank{background:#fbd7eb!important;color:#c12b78!important}
+#rolesDialog .roleCompactChoice.selected,#rolesDialog .roleCompactChoice:has(input:checked),#rolesDialog .accessUser.active{background:rgba(232,61,150,.13)!important;border-color:rgba(232,61,150,.46)!important}
+#rolesDialog .roleCompactChoice input{accent-color:#e83d96!important}
+#rolesDialog .creatorStats>div:not(.accessToolbar):not(.accessFilters){background:rgba(255,236,247,.78)!important;border-color:rgba(255,245,251,.85)!important}
+dialog::backdrop{background:rgba(72,27,62,.3)!important;backdrop-filter:blur(8px)!important}
+body #app .adminTable{background:rgba(255,236,248,.3)!important;border-color:rgba(190,107,158,.27)!important}
+body #app th{background:rgba(232,61,150,.07)!important}
+body #app table,body #app th,body #app td{color:#4b3451!important}
+@media(max-width:700px){#rolesDialog .rolesBox{background:rgba(250,221,239,.96)!important}#rolesDialog .accessUser{background:rgba(255,241,250,.75)!important}}
