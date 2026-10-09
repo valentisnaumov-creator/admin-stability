@@ -27,3 +27,9 @@
 .creatorPasswordButtons{display:flex;gap:10px}.creatorPasswordButtons button{flex:1;padding:12px;border-radius:12px;background:#35445e;color:#fff;border:1px solid #61748d}.creatorPasswordButtons button[type=submit],#creatorSelfPasswordButton{background:linear-gradient(120deg,var(--apple-accent,#0A84FF),var(--apple-deep,#0753a0));color:#fff;border:1px solid var(--apple-soft,#63b4ff);border-radius:14px;padding:12px 15px;cursor:pointer}
 #creatorSelfPasswordButton[hidden]{display:none!important}
 #creatorPassStatus{min-height:16px;font-size:13px;color:#bcdcff}
+
+/* Settings actions live in the account panel, never over dashboard or search */
+#mobilePanelDialog .mobilePanelActions>#appleThemeButton,
+#mobilePanelDialog .mobilePanelActions>#creatorSelfPasswordButton{position:static!important;inset:auto!important;transform:none!important;float:none!important;display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;text-align:left!important;margin:5px 0!important;padding:14px 16px!important;border-radius:16px!important;font-size:14px!important;font-weight:700!important;box-shadow:inset 0 1px 0 #ffffff22!important}
+#mobilePanelDialog .mobilePanelActions>#creatorSelfPasswordButton[hidden],
+#mobilePanelDialog .mobilePanelActions>#appleThemeButton[hidden]{display:none!important}
