@@ -135,3 +135,25 @@ body #app .adminTable{background:rgba(255,236,248,.3)!important;border-color:rgb
 body #app th{background:rgba(232,61,150,.07)!important}
 body #app table,body #app th,body #app td{color:#4b3451!important}
 @media(max-width:700px){#rolesDialog .rolesBox{background:rgba(250,221,239,.96)!important}#rolesDialog .accessUser{background:rgba(255,241,250,.75)!important}}
+
+
+/* v210: low-cost glass rendering for mobile browsers */
+@media(max-width:900px){
+html,body{background-attachment:scroll!important}
+body{background:linear-gradient(145deg,#fbe2f0 0%,#f2c4e2 46%,#e5c9ef 100%)!important;background-attachment:scroll!important}
+body:before{display:none!important;content:none!important;filter:none!important}
+body #app *,body #authGate *,body dialog *,body #app,body #authGate,body dialog{
+backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+body #app .nav,body #app .mobileBottomNav,body #app .card,body #app .panel,body #app .stat,body #app .mini,body #app .todayProgress,body #app .adminRow,body #app .topCard,body #app .calDay,body #app .dayRow,body #app .manageRow,body #app .quickBar,body #app .widget,body #app .statCard,body #app .statBox,body #app .scheduleCard,body #app .scheduleRow,body #app .scheduleSlot,body #app .staffCard,body #app .normCard,body #app .attentionItem,body #app .alertsItem,body #app .mobilePanel,body #app .mobileNavGrid,body #app .mobilePanelDialog,body #app .sidebar,body .authCard,body dialog,body dialog .rolesBox,body dialog .accessEditor,body dialog .accessUsers,body dialog .accessUser,body #rolesDialog .roleCompact,body #rolesDialog .roleCompactChoice{
+background-color:rgba(255,238,248,.91)!important;
+box-shadow:0 3px 12px rgba(143,62,111,.075)!important;
+}
+body #app button,body #authGate button,body dialog button{transition:background-color .14s ease,color .14s ease!important}
+body #app .nav,body #app .mobileBottomNav{background:rgba(252,227,242,.97)!important}
+body #app .stat:after{display:none!important}
+dialog::backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+body #app *,body #authGate *,body dialog *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
