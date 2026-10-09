@@ -1390,3 +1390,16 @@ html body #rolesDialog.rolesDialog[open]>.rolesBox{box-sizing:border-box!importa
 #rolesDialog .accessInlineSave,#rolesDialog .revokeAllRoles{box-sizing:border-box!important;width:100%!important;min-height:47px!important;margin:0!important;border-radius:12px!important}
 }
 @media(min-width:701px){#rolesDialog .accountScreenHeader{display:flex;align-items:center;justify-content:space-between;gap:12px}#rolesDialog .accountScreenClose{display:none}}
+
+
+/* v207: desktop account panel — navigation must look like actual menu items, not oversized grey tiles */
+@media(min-width:701px){
+#mobilePanelDialog .mobilePanelBox{width:min(92vw,720px)!important;max-width:720px!important}
+#mobilePanelDialog .mobileNavGroup{margin:12px 0 18px!important}
+#mobilePanelDialog .mobileNavGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;margin-top:8px!important}
+#mobilePanelDialog .mobileNavGrid>button{appearance:none!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;min-height:45px!important;height:auto!important;padding:10px 13px!important;border:1px solid #3b4965!important;border-radius:10px!important;background:#28344d!important;color:#e8edfa!important;font-size:16px!important;font-weight:400!important;text-align:left!important;box-shadow:none!important;outline:none!important}
+#mobilePanelDialog .mobileNavGrid>button:hover{background:#35445e!important;border-color:#7485ae!important}
+#mobilePanelDialog .mobileNavGrid>button:focus-visible{outline:2px solid #a5a0ff!important;outline-offset:2px!important}
+#mobilePanelDialog .mobileNavGrid>button>b{font-family:inherit!important;font-size:13px!important;line-height:1.25!important;font-weight:600!important;text-align:left!important;color:inherit!important}
+#mobilePanelDialog .mobileNavGroup>span{font-size:12px!important;font-weight:650!important;letter-spacing:.04em!important}
+}
