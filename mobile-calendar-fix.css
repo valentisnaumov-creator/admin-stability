@@ -1,0 +1,33 @@
+/* Mobile calendar: genuine 7-column calendar, no horizontal clipping */
+@media(max-width:720px){
+#calendarView{min-width:0!important;overflow-x:hidden!important}
+#calendarView .cards,#calendarView .card{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+#calendarView .cards{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+#calendarView .card{padding:14px!important;overflow:hidden!important;border-radius:22px!important}
+#calendarView .card .top{display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;gap:9px!important}
+#calendarView .card .name{font-size:clamp(17px,5vw,23px)!important;overflow-wrap:anywhere!important;line-height:1.18!important;color:var(--apple-soft,#63b4ff)!important}
+#calendarView .card .warnings{display:flex!important;gap:5px!important;flex-wrap:wrap!important}
+#calendarView .card .warnings .pill{font-size:11px!important;padding:5px 7px!important}
+#calendarView .card .days{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:5px!important;width:100%!important;min-width:0!important;overflow:visible!important;margin-top:13px!important}
+#calendarView .card .days .day{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;min-width:0!important;width:100%!important;height:54px!important;min-height:54px!important;max-width:none!important;margin:0!important;padding:4px 1px!important;border-radius:11px!important;overflow:hidden!important;white-space:normal!important;line-height:1.1!important;box-shadow:none!important}
+#calendarView .card .days .day b{font-size:14px!important;line-height:18px!important}
+#calendarView .card .days .day small{display:block!important;width:100%!important;max-width:100%!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;font-size:8px!important;line-height:13px!important;text-align:center!important}
+#calendarView .card .days .day.none small{font-size:0!important}
+#calendarView .card .days .day.none small::after{content:"—";font-size:12px;color:#8392ae}
+#calendarView .card .days .day.inactive small{font-size:0!important}
+#calendarView .card .days .day.inactive small::after{content:"Н/А";font-size:9px;color:#ffcb66}
+#calendarView .card .days .day.new small{font-size:0!important}
+#calendarView .card .days .day.new small::after{content:"Новый";font-size:9px;color:#8dcaff}
+#calendarView .card .days .day.norm{border-color:#2cc991!important;background:rgba(31,180,130,.12)!important}
+#calendarView .card .days .day.low{border-color:#e76572!important;background:rgba(225,70,85,.12)!important}
+#calendarView .card .days .day.inactive{border-color:#d69a36!important;background:rgba(225,159,40,.11)!important}
+#calendarView .card .days .day.future,#calendarView .card .days .day.outside{opacity:.4!important}
+#calendarView .card .staffStatusTotals{gap:5px!important;margin-top:12px!important}
+#calendarView .card .staffStatusTotals span{font-size:10px!important;padding:6px 7px!important}
+#calendarView .card .foot{display:flex!important;flex-wrap:wrap!important;gap:5px!important;font-size:11px!important}
+#calendarView .toolbar{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px!important}
+#calendarView .toolbar input,#calendarView .toolbar select{width:100%!important;min-width:0!important;box-sizing:border-box!important}
+#calendarView .pageHead{flex-wrap:wrap!important;gap:10px!important}
+#calendarView .pageHead .month{max-width:100%!important}
+}
+@media(max-width:370px){#calendarView .card{padding:10px!important}#calendarView .card .days{gap:3px!important}#calendarView .card .days .day{height:48px!important;min-height:48px!important;border-radius:8px!important}}
