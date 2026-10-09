@@ -1,0 +1,38 @@
+/* Mobile Accounts v202 - isolated replacement UI */
+@media(max-width:700px){
+body #rolesDialog.rolesDialog[open]{position:fixed!important;inset:0!important;width:100vw!important;max-width:none!important;height:100dvh!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#0e111c!important;overflow:auto!important;overscroll-behavior:contain!important}
+body #rolesDialog[open]>.rolesBox{display:block!important;width:100%!important;max-width:none!important;min-height:100%!important;box-sizing:border-box!important;padding:0 16px calc(30px + env(safe-area-inset-bottom))!important;margin:0!important;background:transparent!important;border:0!important;overflow:visible!important}
+#rolesDialog .unifiedDialogClose,#rolesDialog .rolesBox>.close{display:none!important}
+#rolesDialog .accountScreenHeader{position:sticky!important;top:0!important;z-index:99!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;padding:calc(13px + env(safe-area-inset-top)) 16px 13px!important;margin:0 -16px 16px!important;background:#171a29!important;border-bottom:1px solid #33364c!important}
+#rolesDialog .accountScreenHeader h2{font-size:22px!important;margin:3px 0!important;line-height:1.2!important}
+#rolesDialog .accountScreenHeader p{font-size:12px!important;margin:0!important}
+#rolesDialog .accountScreenClose{display:grid!important;place-items:center!important;flex:0 0 42px!important;width:42px!important;height:42px!important;border:1px solid #594967!important;border-radius:12px!important;background:#30273f!important;color:white!important;font-size:26px!important}
+#rolesDialog .creatorStats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;padding:0!important;margin:0 0 14px!important;background:transparent!important;border:0!important}
+#rolesDialog .creatorStats>div:not(.accessToolbar):not(.accessFilters){box-sizing:border-box!important;min-width:0!important;width:auto!important;padding:11px 7px!important;border:1px solid #34384e!important;border-radius:13px!important;background:#1a1e2d!important}
+#rolesDialog .creatorStats>div:not(.accessToolbar):not(.accessFilters) span{font-size:10px!important;line-height:1.3!important;display:block!important}
+#rolesDialog .creatorStats>div:not(.accessToolbar):not(.accessFilters) b{font-size:21px!important}
+#rolesDialog .creatorStats>.accessToolbar,#rolesDialog .creatorStats>.accessFilters{grid-column:1/-1!important;display:flex!important;flex-wrap:nowrap!important;gap:7px!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:2px 0!important;overflow-x:auto!important;scrollbar-width:none!important;background:transparent!important;border:0!important}
+#rolesDialog .creatorStats>.accessToolbar button,#rolesDialog .creatorStats>.accessFilters button{flex:0 0 auto!important;min-width:0!important;min-height:38px!important;padding:9px 13px!important;border-radius:11px!important;font-size:12px!important;white-space:nowrap!important}
+#rolesDialog .rolesList,#rolesDialog .accessLayout{display:block!important;box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;padding:0!important;margin:0!important;overflow:visible!important;border:0!important;background:transparent!important}
+#rolesDialog #rolesList:not(.accessEditing) .accessUsers{display:block!important;box-sizing:border-box!important;width:100%!important;max-height:none!important;height:auto!important;overflow:visible!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important}
+#rolesDialog #rolesList:not(.accessEditing) .accessEditor{display:none!important}
+#rolesDialog #rolesList.accessEditing .accessUsers{display:none!important}
+#rolesDialog #rolesList.accessEditing .accessEditor{display:block!important;box-sizing:border-box!important;width:100%!important;max-width:100%!important;padding:0!important;margin:0!important;border:0!important;overflow:visible!important;background:transparent!important}
+#rolesDialog:has(#rolesList.accessEditing) .creatorStats{display:none!important}
+#rolesDialog:has(#rolesList.accessEditing) .accountScreenHeader p{display:none!important}
+#rolesDialog #accessSearch{box-sizing:border-box!important;width:100%!important;height:46px!important;margin:0 0 12px!important;padding:11px 14px!important;border:1px solid #373a52!important;border-radius:12px!important;background:#1a1e2d!important}
+#rolesDialog #accessUserList{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px!important;width:100%!important;max-height:none!important;overflow:visible!important}
+#rolesDialog #accessUserList>.accessUser{box-sizing:border-box!important;display:flex!important;align-items:center!important;gap:11px!important;width:100%!important;min-height:66px!important;padding:12px!important;margin:0!important;border:1px solid #34384e!important;border-radius:14px!important;background:#1b2030!important;text-align:left!important}
+#rolesDialog .accessUser>span:nth-child(2){flex:1!important;min-width:0!important;overflow:hidden!important}
+#rolesDialog .accessUser b,#rolesDialog .accessUser small{display:block!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+#rolesDialog .accessBackToList{display:inline-flex!important;align-items:center!important;min-height:42px!important;margin:0 0 14px!important;padding:9px 12px!important;border:1px solid #54466b!important;border-radius:11px!important;background:#27243a!important;color:#fff!important}
+#rolesDialog .accessEditorHead{display:flex!important;gap:12px!important;align-items:center!important;padding:13px!important;margin:0 0 16px!important;border:1px solid #36394e!important;border-radius:14px!important;background:#1a1e2d!important}
+#rolesDialog .accessEditorHead>div{min-width:0!important;overflow-wrap:anywhere!important}
+#rolesDialog .accessForm{display:flex!important;flex-direction:column!important;gap:14px!important;padding:0!important;margin:0!important;max-width:100%!important}
+#rolesDialog .accessForm>label,#rolesDialog .multiRoleEditor{box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important}
+#rolesDialog .multiRoleEditor{padding:13px!important;border:1px solid #4f4168!important;border-radius:14px!important;background:#1a1e2d!important}
+#rolesDialog #extraRolesChoices{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px!important}
+#rolesDialog #extraRolesChoices .multiRoleChoice{display:flex!important;flex-direction:row!important;align-items:center!important;box-sizing:border-box!important;width:100%!important;min-height:48px!important;padding:10px 12px!important;margin:0!important;gap:12px!important}
+#rolesDialog #extraRolesChoices input[type=checkbox]{appearance:auto!important;display:block!important;position:static!important;opacity:1!important;width:19px!important;height:19px!important;flex:0 0 19px!important;margin:0!important}
+#rolesDialog .accessInlineSave,#rolesDialog .revokeAllRoles{box-sizing:border-box!important;width:100%!important;min-height:46px!important;margin:0!important;border-radius:12px!important}
+}
