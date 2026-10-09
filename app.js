@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded',async()=>{
+
+/* Consistent close controls and backdrop behavior for existing dialogs. */
+function installUnifiedDialogs(){
+ document.querySelectorAll('dialog:not(.appConfirmDialog)').forEach(dialog=>{
+  if(dialog.dataset.unifiedDialog==='1')return;
+  dialog.dataset.unifiedDialog='1';
+  const x=document.createElement('button');
+  x.type='button';x.className='unifiedDialogClose';x.setAttribute('aria-label','Закрыть окно');x.title='Закрыть';
+  x.textContent='×';x.addEventListener('click',()=>dialog.close());
+  dialog.prepend(x);
+  dialog.addEventListener('click',event=>{
+   if(event.target!==dialog)return;
+   const rect=dialog.getBoundingClientRect();
+   if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();
+  });
+ });
+}
+installUnifiedDialogs();
+
 /* v183: branded confirmation and copy dialogs */
 function appModal(message,{title='Подтверждение действия',danger=false,copyText=null}={}){
  return new Promise(resolve=>{
