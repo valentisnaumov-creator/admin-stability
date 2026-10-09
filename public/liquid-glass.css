@@ -131,3 +131,52 @@ background:#20283a!important;color:#f5f6fa!important;border:1px solid #39465e!im
 #app .calDay{border-radius:11px!important}
 #app .quickActions{background:transparent!important;border:none!important}
 }
+
+
+/* v214 visual overhaul: compact iOS grouped surfaces */
+@media(max-width:900px){
+html,body{background:#10141f!important}
+#app .shell{padding:0 12px!important}
+#app .hero{height:auto!important;min-height:0!important;padding:18px 16px!important;margin:10px 0 14px!important;border-radius:22px!important;background:#222b40!important;border:1px solid #384762!important;gap:12px!important}
+#app .heroMark{width:43px!important;min-width:43px!important;height:46px!important;font-size:27px!important;border-radius:13px!important}
+#app .hero h1{font-size:clamp(18px,5vw,24px)!important;line-height:1.08!important;letter-spacing:-.04em!important}
+#app .hero>div:nth-child(2)>span{font-size:10px!important;color:#aab7ce!important}
+#app #homeView .quickBar{display:flex!important;padding:12px!important;margin-bottom:10px!important}
+#app #homeView .todayProgress{padding:16px!important;margin:0 0 10px!important;border-radius:20px!important;background:#222b40!important}
+#app #homeView .todayProgressTop{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important}
+#app #homeView .todayProgressTop b{font-size:32px!important}
+#app #homeView .todayChips{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+#app #homeView .todayChips>*{padding:9px 10px!important;min-height:38px!important;background:#2a354d!important;border:0!important;border-radius:12px!important;font-size:12px!important}
+#app #homeView .stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin:0 0 11px!important}
+#app #homeView .stats>.stat{min-height:104px!important;padding:14px!important;border:0!important;border-radius:19px!important;background:#222b40!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:6px!important}
+#app #homeView .stats>.stat span{font-size:12px!important;line-height:1.25!important;color:#aab7ce!important}
+#app #homeView .stats>.stat b{font-size:30px!important;line-height:1!important;letter-spacing:-.05em!important}
+#app #homeView .stats>.stat small{font-size:11px!important;color:#aab7ce!important}
+#app #homeView .stats>.stat:last-child:nth-child(odd){grid-column:1/-1!important;min-height:78px!important}
+#app #homeView .dashboardGrid{display:block!important}
+#app #homeView .panel{padding:14px!important;border:0!important;border-radius:20px!important;background:#222b40!important;margin-bottom:10px!important}
+#app #homeView .panelHead{margin-bottom:12px!important}
+#app #homeView .panelHead h2{font-size:17px!important}
+#app #homeView .miniStats{gap:7px!important}
+#app #homeView .mini{padding:12px!important;min-height:75px!important;border:0!important;background:#2a354d!important;border-radius:14px!important}
+#app #homeView .mini b{font-size:23px!important}
+#app #homeView .mini span{font-size:11px!important}
+#app #scheduleView .pageHead{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:12px!important;margin:12px 0 14px!important}
+#app #scheduleView .pageHead h2{font-size:24px!important}
+#app #scheduleView .pageHead small{font-size:12px!important}
+#app #scheduleView .prettyDate{border-radius:14px!important;background:#26324a!important;border:1px solid #3c4c68!important}
+#app #scheduleView .scheduleSummary{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;margin-bottom:12px!important}
+#app #scheduleView .scheduleSummary>div{padding:14px!important;border:0!important;background:#222b40!important;border-radius:17px!important;min-height:84px!important}
+#app #scheduleView .scheduleSummary b{font-size:23px!important}
+#app #scheduleView .scheduleCoverage{grid-column:1/-1!important}
+#app #scheduleView .scheduleGrid{gap:10px!important}
+#app #scheduleView .shiftCard{padding:15px!important;border-radius:20px!important;background:#222b40!important;border:1px solid #384762!important;box-shadow:none!important}
+#app #scheduleView .shiftTop{gap:10px!important}
+#app #scheduleView .shiftTop h3{font-size:19px!important;letter-spacing:-.025em!important}
+#app #scheduleView .shiftPerson,#app #scheduleView .vacant{border-radius:12px!important;background:#2b3650!important;border:1px solid #3d4c67!important;min-height:42px!important}
+#app #scheduleView .shiftCard select{background:#2b3650!important;border:1px solid #4a5a76!important;border-radius:13px!important;min-height:45px!important}
+#app #scheduleView .shiftCard .primary{min-height:44px!important;border-radius:13px!important}
+#app #manageView .staffCard,#app #calendarView .cards>*,#app #dayView .normEditRow{border-radius:18px!important;background:#222b40!important;padding:13px!important;border:1px solid #384762!important}
+#app .mobileBottomNav{padding:7px!important;gap:4px!important;border-radius:20px 20px 0 0!important;background:#1b2234!important}
+#app .mobileBottomNav button{border-radius:14px!important}
+}
