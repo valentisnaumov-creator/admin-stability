@@ -274,3 +274,17 @@ dialog:not(.mediaViewer) h2{font-size:20px!important}
 #mobilePanelDialog .mobilePanelActions>*{background:#273249!important;border-radius:15px!important}
 #profileDialog input,#inviteDialog input,#nicknameDialog input{font-size:16px!important}
 }
+
+/* v250: mobile-friendly liquid glass enhancements */
+:root{--ios-accent:#5e5ce6;--ios-stroke:rgba(200,220,255,.18)}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif!important;-webkit-font-smoothing:antialiased}
+#app .panel,#app .quickBar,#app .todayProgress,#app .stat{border:1px solid var(--ios-stroke)!important;border-radius:24px!important;box-shadow:inset 0 1px 0 #ffffff12,0 8px 26px #0002!important}
+#app button{transition:background-color .2s,border-color .2s,transform .28s cubic-bezier(.22,1.45,.42,1)}
+#app button:active{transform:scale(.965)}
+#app button:focus-visible,#app input:focus-visible{outline:2px solid var(--ios-accent);outline-offset:3px}
+#app .quickActions{display:flex!important;flex-wrap:wrap!important;align-items:stretch!important;gap:9px!important}
+#app .quickActions>#controlHubBtn,#app .quickActions>#globalCmdLaunch{position:static!important;inset:auto!important;transform:none!important;flex:1 1 145px!important;min-width:0!important;max-width:none!important;white-space:normal!important;margin:0!important;min-height:46px!important}
+#app .quickActions>#globalCmdLaunch{background:linear-gradient(130deg,#4c4d98,#3174a7)!important}
+#app .quickActions>#controlHubBtn{background:linear-gradient(130deg,#6257b5,#3174a7)!important}
+@media(max-width:650px){#app .quickActions>#globalCmdLaunch,#app .quickActions>#controlHubBtn{flex:1 1 calc(50% - 8px)!important;font-size:13px!important;padding:11px 8px!important}#app .quickBar{overflow:visible!important}#app .stats{gap:10px!important}}
+@media(prefers-reduced-motion:reduce){#app button{transition:none!important}}
