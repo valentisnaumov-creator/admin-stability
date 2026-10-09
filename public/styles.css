@@ -1403,3 +1403,12 @@ html body #rolesDialog.rolesDialog[open]>.rolesBox{box-sizing:border-box!importa
 #mobilePanelDialog .mobileNavGrid>button>b{font-family:inherit!important;font-size:13px!important;line-height:1.25!important;font-weight:600!important;text-align:left!important;color:inherit!important}
 #mobilePanelDialog .mobileNavGroup>span{font-size:12px!important;font-weight:650!important;letter-spacing:.04em!important}
 }
+
+/* v208: desktop settings menu with dedicated class; avoids generic dialog[open] button styles */
+@media(min-width:701px){
+html body dialog#mobilePanelDialog[open] .mobilePanelBox .mobilePanelActions .mobileNavGroup .mobileNavGrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+html body dialog#mobilePanelDialog[open] .mobilePanelBox .mobilePanelActions .mobileNavGroup .mobileNavGrid button.settingsDesktopNav{all:unset!important;box-sizing:border-box!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:11px!important;width:100%!important;min-width:0!important;min-height:48px!important;height:auto!important;margin:0!important;padding:11px 15px!important;background:#27344c!important;border:1px solid #40516d!important;border-radius:11px!important;color:#f0f3ff!important;font:500 16px/1.2 system-ui,sans-serif!important;text-align:left!important;cursor:pointer!important;transition:background .15s,border-color .15s!important}
+html body dialog#mobilePanelDialog[open] .mobilePanelBox .mobilePanelActions .mobileNavGroup .mobileNavGrid button.settingsDesktopNav b{all:unset!important;display:inline!important;color:#f0f3ff!important;font:600 13px/1.3 system-ui,sans-serif!important;text-align:left!important}
+html body dialog#mobilePanelDialog[open] .mobilePanelBox .mobilePanelActions .mobileNavGroup .mobileNavGrid button.settingsDesktopNav:hover{background:#36445f!important;border-color:#9479c5!important}
+html body dialog#mobilePanelDialog[open] .mobilePanelBox .mobilePanelActions .mobileNavGroup .mobileNavGrid button.settingsDesktopNav:focus-visible{outline:2px solid #b29aff!important;outline-offset:2px!important}
+}
