@@ -1350,3 +1350,20 @@ body.mediaViewerOpen{overflow:hidden!important}.mediaViewerOverlay[hidden]{displ
 .globalToast .toastSymbol{display:grid;place-items:center;flex:0 0 27px;height:27px;border-radius:9px;background:#9d4edd;color:white;font-weight:900}
 .globalToast.success .toastSymbol{background:#218e65}.globalToast>div{display:grid;gap:5px;flex:1;min-width:0}.globalToast strong{font-size:14px}.globalToast>div>span{font-size:13px;line-height:1.4;overflow-wrap:anywhere}.globalToast>button{border:0;background:transparent;color:inherit;font-size:24px;line-height:1;cursor:pointer;padding:0 2px}
 @media(max-width:700px){.globalToast{top:calc(12px + env(safe-area-inset-top,0px))!important;padding:13px!important}}
+
+
+/* v197 - shared modal design system */
+dialog:not(.datePickerDialog){color:var(--text)!important;border:1px solid #655276!important;border-radius:18px!important;background:linear-gradient(155deg,#21192e,#141722 80%)!important;box-shadow:0 24px 90px #000b!important;max-width:min(94vw,680px);max-height:calc(100dvh - 36px);overflow:auto;overscroll-behavior:contain}
+dialog::backdrop{background:#080812b9!important;backdrop-filter:blur(5px)!important}
+dialog .unifiedDialogClose{position:sticky!important;top:6px!important;float:right!important;z-index:30!important;display:grid!important;place-items:center!important;min-width:34px!important;width:34px!important;height:34px!important;min-height:34px!important;margin:2px 2px -36px 8px!important;padding:0!important;border:1px solid #655276!important;border-radius:10px!important;background:#30243e!important;color:#f5eaff!important;font:normal 25px/1 Arial,sans-serif!important;cursor:pointer!important;box-shadow:0 2px 12px #0004!important}
+dialog .unifiedDialogClose:hover{background:#59366f!important;border-color:#d19cff!important}
+dialog .unifiedDialogClose:focus-visible{outline:2px solid #d19cff!important;outline-offset:2px!important}
+dialog:has(.unifiedDialogClose)>.x,dialog:has(.unifiedDialogClose)>form>.close,dialog:has(.unifiedDialogClose)>.close{display:none!important}
+dialog h2,dialog h3{overflow-wrap:anywhere}
+dialog input,dialog select,dialog textarea{max-width:100%;box-sizing:border-box}
+dialog button{touch-action:manipulation}
+@media(max-width:700px){
+ dialog:not(.datePickerDialog){width:calc(100vw - 18px)!important;max-width:calc(100vw - 18px)!important;max-height:calc(100dvh - 28px)!important;margin:auto!important;border-radius:16px!important}
+ dialog.profileDialog{width:100vw!important;max-width:100vw!important;max-height:100dvh!important;border-radius:0!important}
+ dialog .unifiedDialogClose{min-width:38px!important;width:38px!important;height:38px!important;min-height:38px!important}
+}
