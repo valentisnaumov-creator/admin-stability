@@ -20,3 +20,10 @@
 #app .accessEditor,#app .accessForm{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
 #app .accessForm input,#app .accessForm select{max-width:100%!important;box-sizing:border-box!important}
 }
+
+#creatorSelfPasswordDialog{width:min(430px,calc(100vw - 24px));box-sizing:border-box;background:#202a40;color:#f5f8ff;border:1px solid var(--apple-soft,#63b4ff);border-radius:24px;padding:22px;box-shadow:0 24px 75px #0009}
+#creatorSelfPasswordDialog::backdrop{background:#070d20ba;backdrop-filter:blur(8px)}
+.creatorPasswordForm{display:grid;gap:15px}.creatorPasswordForm h2{margin:0;font-size:22px}.creatorPasswordForm p{margin:0;color:#b8c7dc}.creatorPasswordForm label{display:grid;gap:7px;font-size:13px;font-weight:700}.creatorPasswordForm input{width:100%;box-sizing:border-box;background:#151e30;color:white;border:1px solid #596b87;border-radius:12px;padding:13px;font-size:16px}
+.creatorPasswordButtons{display:flex;gap:10px}.creatorPasswordButtons button{flex:1;padding:12px;border-radius:12px;background:#35445e;color:#fff;border:1px solid #61748d}.creatorPasswordButtons button[type=submit],#creatorSelfPasswordButton{background:linear-gradient(120deg,var(--apple-accent,#0A84FF),var(--apple-deep,#0753a0));color:#fff;border:1px solid var(--apple-soft,#63b4ff);border-radius:14px;padding:12px 15px;cursor:pointer}
+#creatorSelfPasswordButton[hidden]{display:none!important}
+#creatorPassStatus{min-height:16px;font-size:13px;color:#bcdcff}
