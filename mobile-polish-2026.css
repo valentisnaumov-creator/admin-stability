@@ -1,0 +1,22 @@
+/* Mobile Apple-inspired interface refinements */
+@media(max-width:720px){
+#app{max-width:100vw!important;overflow-x:clip!important}
+#app main,#app main>section{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+#app .pageHead{gap:12px!important;flex-wrap:wrap!important}
+#app .pageHead h2{font-size:clamp(21px,6vw,29px)!important;line-height:1.16!important;overflow-wrap:anywhere!important}
+#app .quickBar,#app .todayProgress,#app .panel,#app .card,#app .stat{border-radius:21px!important}
+#app .toolbar{gap:9px!important;flex-wrap:wrap!important}
+#app .toolbar input,#app .toolbar select{max-width:100%!important;box-sizing:border-box!important}
+#app .stat{min-width:0!important;overflow-wrap:anywhere!important}
+#app .stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+#app .stats .stat{min-width:0!important;padding:16px 13px!important}
+#app .stats .stat span{font-size:13px!important;line-height:1.25!important}
+#app .stats .stat b{font-size:clamp(25px,8vw,40px)!important}
+#app .stats .stat small{font-size:11px!important;overflow-wrap:anywhere!important}
+#app .mobileBottomNav{backdrop-filter:blur(22px) saturate(145%)!important;-webkit-backdrop-filter:blur(22px) saturate(145%)!important}
+#app .mobileBottomNav button{min-width:0!important}
+#app .quickActions button{min-width:0!important}
+#app dialog,#app .mobilePanelDialog{max-width:calc(100vw - 20px)!important;box-sizing:border-box!important}
+#app .accessEditor,#app .accessForm{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+#app .accessForm input,#app .accessForm select{max-width:100%!important;box-sizing:border-box!important}
+}
