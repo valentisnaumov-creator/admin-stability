@@ -31,3 +31,5 @@ html body dialog#datePickerDialog[open] .unifiedDialogClose{position:absolute!im
 
 /* v221: clean daily overview values and appointment badge */
 #homeDayList .adminRow{min-width:0;align-items:center}#homeDayList .adminRow .dayHours{white-space:nowrap;font-variant-numeric:tabular-nums;font-size:13px;min-width:90px;text-align:right;overflow:visible;overflow-wrap:normal;word-break:normal}#homeDayList .adminRow .adminName{min-width:0}#homeDayList .adminRow .badge.new{background:#164d64;color:#80e5fa;border-radius:999px;padding:6px 12px}#homeDayList .adminRow.new{border-color:#36718a}#homeDayList .adminRow.new .dayHours{color:#9fb6ce;font-size:12px}#dayMiniStats .mini b{font-variant-numeric:tabular-nums}
+
+.excelImportPanel[hidden],#undoNormExcelBtn[hidden]{display:none!important}
