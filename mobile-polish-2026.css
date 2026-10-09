@@ -41,3 +41,27 @@
 .creatorPasswordReset small{font-size:12px;line-height:1.5;color:#b6c9e3}
 
 .calendarArchiveSwitch{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 18px}.calendarArchiveSwitch button{border:1px solid #526480;border-radius:13px;background:#1b2940;color:#c5d5ed;padding:11px 14px;font-weight:700;cursor:pointer}.calendarArchiveSwitch button.active{background:var(--apple-accent,#0a84ff);border-color:var(--apple-accent,#0a84ff);color:white}.calendarArchiveSwitch span{margin-left:auto;font-size:12px;color:#9eafc7}@media(max-width:720px){.calendarArchiveSwitch{display:grid;grid-template-columns:1fr 1fr;gap:7px}.calendarArchiveSwitch button{font-size:12px;padding:11px 5px}.calendarArchiveSwitch span{grid-column:1/-1;text-align:center;margin:0}}
+
+/* Compact calendar overview: small metric tiles and a single horizontal action strip */
+#calendarMonthTotals{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:8px!important;align-items:stretch!important;margin:10px 0 14px!important}
+#calendarMonthTotals>div{min-width:0!important;min-height:0!important;padding:10px 12px!important;border-radius:12px!important;display:flex!important;flex-direction:column!important;gap:3px!important}
+#calendarMonthTotals>div small{font-size:11px!important;line-height:1.2!important}
+#calendarMonthTotals>div b{font-size:22px!important;line-height:1.15!important}
+#calendarMonthTotals>.exportCalendarCsv{min-width:0!important;width:auto!important;margin:0!important;padding:9px 10px!important;font-size:12px!important;line-height:1.3!important;border-radius:11px!important}
+#calendarMonthTotals>#exportCalendarCsv{grid-column:1/3}
+#calendarMonthTotals>#exportCalendarDailyCsv{grid-column:3/5}
+#calendarMonthTotals>#copyCalendarReport{grid-column:5/6}
+#calendarArchiveSwitch{margin:8px 0 10px!important;gap:7px!important}
+#calendarArchiveSwitch button{padding:9px 12px!important}
+#calendarArchiveSwitch span{font-size:11px!important}
+@media(max-width:720px){
+#calendarMonthTotals{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}
+#calendarMonthTotals>div{padding:9px 8px!important}
+#calendarMonthTotals>div small{font-size:10px!important}
+#calendarMonthTotals>div b{font-size:19px!important}
+#calendarMonthTotals>.exportCalendarCsv{font-size:11px!important;padding:9px 5px!important;white-space:normal!important}
+#calendarMonthTotals>#exportCalendarCsv,#calendarMonthTotals>#exportCalendarDailyCsv,#calendarMonthTotals>#copyCalendarReport{grid-column:auto!important}
+#calendarArchiveSwitch{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#calendarArchiveSwitch button{font-size:12px!important;padding:10px 6px!important}
+#calendarArchiveSwitch span{grid-column:1/-1!important}
+}
