@@ -36,3 +36,26 @@ body #rolesDialog[open]>.rolesBox{display:block!important;width:100%!important;m
 #rolesDialog #extraRolesChoices input[type=checkbox]{appearance:auto!important;display:block!important;position:static!important;opacity:1!important;width:19px!important;height:19px!important;flex:0 0 19px!important;margin:0!important}
 #rolesDialog .accessInlineSave,#rolesDialog .revokeAllRoles{box-sizing:border-box!important;width:100%!important;min-height:46px!important;margin:0!important;border-radius:12px!important}
 }
+
+/* v203 compact accounts + role editor */
+@media(max-width:700px){
+#rolesDialog .creatorStats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important;margin-bottom:10px!important}
+#rolesDialog .creatorStats>div:not(.accessToolbar):not(.accessFilters){min-height:0!important;height:auto!important;padding:9px 4px!important;border-radius:11px!important}
+#rolesDialog .creatorStats>div:not(.accessToolbar):not(.accessFilters) span{font-size:9px!important}
+#rolesDialog .creatorStats>div:not(.accessToolbar):not(.accessFilters) b{font-size:18px!important}
+#rolesDialog .creatorStats>.accessToolbar,#rolesDialog .creatorStats>.accessFilters{grid-column:1/-1!important;gap:6px!important;margin:0!important}
+#rolesDialog .creatorStats>.accessToolbar button,#rolesDialog .creatorStats>.accessFilters button{min-height:34px!important;padding:7px 10px!important;font-size:11px!important}
+#rolesDialog .accountScreenHeader{padding-top:calc(8px + env(safe-area-inset-top))!important;padding-bottom:8px!important;margin-bottom:11px!important}
+#rolesDialog .accountScreenHeader h2{font-size:19px!important}
+#rolesDialog .accountScreenHeader .eyebrow{font-size:9px!important}
+#rolesDialog .accountScreenHeader p{display:none!important}
+#rolesDialog #accessSearch{height:41px!important;margin-bottom:9px!important}
+#rolesDialog #accessUserList{gap:6px!important}
+#rolesDialog #accessUserList>.accessUser{min-height:55px!important;padding:8px 10px!important;border-radius:11px!important}
+#rolesDialog .multiRoleEditor{display:block!important;height:auto!important;min-height:0!important;max-height:none!important;padding:12px!important}
+#rolesDialog .multiRoleTitle{margin:0 0 9px!important;min-height:0!important}
+#rolesDialog .multiRoleToolbar{margin:0 0 9px!important;min-height:0!important}
+#rolesDialog #extraRolesChoices{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:7px!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;align-content:start!important}
+#rolesDialog #extraRolesChoices .multiRoleChoice{min-height:41px!important;height:auto!important;padding:8px 11px!important;border-radius:10px!important}
+#rolesDialog #rolesList[hidden],#rolesDialog .accessUser[hidden],#rolesDialog #accessFilters[hidden]{display:none!important}
+}
