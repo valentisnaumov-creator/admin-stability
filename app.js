@@ -51,7 +51,7 @@ async function load(){const [s,m,g,sc,rp]=await Promise.all([sb.from('staff').se
 let syncHealth='loading',syncLastSuccess=0,realtimeHealth='connecting';
 function ensureSyncIndicator(){let el=document.getElementById('staffSyncIndicator');if(el)return el;el=document.createElement('button');el.id='staffSyncIndicator';el.type='button';el.title='Состояние синхронизации. Нажмите, чтобы обновить данные';el.onclick=()=>{setSyncHealth('loading');refreshLiveData()};document.body.appendChild(el);return el}
 function setSyncHealth(state){syncHealth=state;if(state==='ok')syncLastSuccess=Date.now();drawSyncIndicator()}
-function drawSyncIndicator(){const el=ensureSyncIndicator();if(!user){el.hidden=true;return}el.hidden=false;const age=syncLastSuccess?Math.round((Date.now()-syncLastSuccess)/1000):null;const stale=age!==null&&age>90;const status=syncHealth==='error'||stale?'error':syncHealth==='loading'?'loading':'ok';el.dataset.status=status;el.textContent=status==='error'?'⚠ Нет синхронизации':status==='loading'?'↻ Обновление':realtimeHealth==='live'?'● Онлайн · синхр.':'✓ Данные актуальны';el.title='Последнее обновление: '+(syncLastSuccess?new Date(syncLastSuccess).toLocaleTimeString('ru-RU'):'нет')+' · '+(realtimeHealth==='live'?'Realtime подключён':'резервное обновление каждые 20 секунд')+'. Нажмите для обновления'}
+function drawSyncIndicator(){const el=ensureSyncIndicator();if(!user){el.hidden=true;return}el.hidden=false;const age=syncLastSuccess?Math.round((Date.now()-syncLastSuccess)/1000):null;const stale=age!==null&&age>90;const status=syncHealth==='error'||stale?'error':syncHealth==='loading'?'loading':'ok';el.dataset.status=status;el.textContent=status==='error'?'⚠ Нет синхронизации':status==='loading'?'↻ Обновление':realtimeHealth==='live'?'● Онлайн · синхр.':'✓ Данные актуальны';el.title='Последнее обновление: '+(syncLastSuccess?new Date(syncLastSuccess).toLocaleTimeString('ru-RU'):'нет')+' · '+(realtimeHealth==='live'?'Realtime подключён':'резервная синхронизация активна; подключение восстанавливается автоматически')+'. Нажмите для обновления'}
 setInterval(()=>{if(user)drawSyncIndicator()},15000);
 // Network resilience: visible offline state, automatic recovery and cross-tab synchronization.
 let syncTabChannel=null,syncFingerprint='',syncFromPeer=false;
@@ -65,7 +65,7 @@ let liveRenderPending=false,liveRenderDeferred=false,liveRefreshBusy=false,liveR
 function queueLiveRender(){if(liveRenderPending)return;liveRenderPending=true;requestAnimationFrame(()=>{liveRenderPending=false;if(!user||document.hidden)return;const focused=document.activeElement;if(focused&&/^(INPUT|TEXTAREA|SELECT)$/.test(focused.tagName)&&!focused.closest('dialog')){liveRenderDeferred=true;return}liveRenderDeferred=false;renderAll();if($('historyDialog')?.open)renderHistory();if($('notificationDialog')?.open)renderNotificationCenter()})}
 async function refreshLiveData(){if(!user||authBooting||document.hidden||!navigator.onLine)return;if(liveRefreshBusy){liveRefreshQueued=true;return}liveRefreshBusy=true;try{await load()}catch(e){setSyncHealth('error');console.warn('Live refresh failed',e)}finally{liveRefreshBusy=false;if(liveRefreshQueued){liveRefreshQueued=false;refreshLiveData()}}}
 document.addEventListener('focusout',()=>{if(liveRenderDeferred)requestAnimationFrame(()=>{if(liveRenderDeferred)queueLiveRender()})});
-let realtimeStaffChannel=null,realtimeRefreshTimer=null;
+let realtimeStaffChannel=null,realtimeRefreshTimer=null,realtimeReconnectTimer=null,realtimeRetryCount=0;
 function setupRealtimeStaff(){
  if(realtimeStaffChannel||!user)return;
  try{
@@ -75,9 +75,12 @@ function setupRealtimeStaff(){
    .on('postgres_changes',{event:'*',schema:'public',table:'schedule_assignments'},()=>scheduleRealtimeRefresh())
    .on('postgres_changes',{event:'*',schema:'public',table:'schedule_replacements'},()=>scheduleRealtimeRefresh())
    .on('postgres_changes',{event:'*',schema:'public',table:'schedule_slots'},()=>scheduleRealtimeRefresh())
-   .subscribe(status=>{realtimeHealth=status==='SUBSCRIBED'?'live':'fallback';drawSyncIndicator();if(status==='CHANNEL_ERROR'||status==='TIMED_OUT')console.warn('Realtime unavailable; periodic synchronization remains enabled')});
+   .subscribe(status=>{if(status==='SUBSCRIBED'){realtimeHealth='live';realtimeRetryCount=0;if(realtimeReconnectTimer){clearTimeout(realtimeReconnectTimer);realtimeReconnectTimer=null}scheduleRealtimeRefresh()}else if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'||status==='CLOSED'){realtimeHealth='fallback';scheduleRealtimeReconnect()}drawSyncIndicator()});
  }catch(e){console.warn('Realtime setup unavailable',e)}
 }
+function scheduleRealtimeReconnect(){if(!user||realtimeReconnectTimer||document.hidden||!navigator.onLine)return;const delay=Math.min(60000,2000*Math.pow(2,Math.min(realtimeRetryCount++,5)))+Math.floor(Math.random()*700);realtimeReconnectTimer=setTimeout(async()=>{realtimeReconnectTimer=null;if(!user||document.hidden||!navigator.onLine)return;const previous=realtimeStaffChannel;realtimeStaffChannel=null;if(previous){try{await sb.removeChannel(previous)}catch(e){console.warn('Realtime channel cleanup',e)}}setupRealtimeStaff()},delay)}
+window.addEventListener('online',()=>{if(user&&realtimeHealth!=='live')scheduleRealtimeReconnect()});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&user&&realtimeHealth!=='live')scheduleRealtimeReconnect()});
 function scheduleRealtimeRefresh(){if(realtimeRefreshTimer)clearTimeout(realtimeRefreshTimer);realtimeRefreshTimer=setTimeout(()=>{realtimeRefreshTimer=null;refreshLiveData()},300)}
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshLiveData()});
 window.addEventListener('focus',()=>refreshLiveData());
