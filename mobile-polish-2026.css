@@ -93,3 +93,10 @@
 #quickCommandResults{padding:5px 8px 12px;max-height:55dvh;overflow:auto}
 .quickCommandResult{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;padding:12px;border:0;border-radius:11px;background:transparent;color:#edf5ff;cursor:pointer}.quickCommandResult small{font-size:11px;color:#9db5d7}.quickCommandResult.active,.quickCommandResult:hover{background:#30496d}
 @media(max-width:720px){#quickCommandLauncher{right:12px;bottom:145px;width:39px;height:39px;font-size:24px}#quickCommandDialog{margin-top:12dvh}.quickCommandResult{padding:13px 10px}}
+
+#appDiagnosticsButton{position:fixed;bottom:12px;left:12px;z-index:795;padding:8px 11px;border:1px solid #5c7295;border-radius:12px;background:#253854;color:#d7e6ff;font-size:11px;cursor:pointer;box-shadow:0 4px 16px #0004}#appDiagnosticsButton[data-errors=yes]{border-color:#c48659;color:#ffd3aa}
+#appDiagnosticsDialog{width:min(570px,calc(100vw - 24px));max-height:80dvh;overflow:auto;padding:18px;border:1px solid #536b8b;border-radius:18px;background:#17253a;color:#edf5ff}#appDiagnosticsDialog::backdrop{background:#000a}
+.diagnosticsHead{display:flex;justify-content:space-between;align-items:center;gap:12px}.diagnosticsHead h2{margin:0}.diagnosticsHead button{border:0;background:transparent;color:inherit;font-size:25px;cursor:pointer}
+.diagnosticsLine{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #4a5e7a66;font-size:13px}.diagnosticsLine span{color:#a9c6e8;text-align:right}
+#diagnosticsEvents{margin:12px 0;max-height:220px;overflow:auto;font-size:12px;color:#b9cee8}.diagnosticsEvent{padding:8px 0;border-bottom:1px solid #4a5e7a66;overflow-wrap:anywhere}
+.diagnosticsActions{display:flex;flex-wrap:wrap;gap:8px}.diagnosticsActions button{padding:10px;border:1px solid #536d91;border-radius:10px;background:#294363;color:#edf5ff;cursor:pointer}
