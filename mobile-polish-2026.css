@@ -65,3 +65,10 @@
 #calendarArchiveSwitch button{font-size:12px!important;padding:10px 6px!important}
 #calendarArchiveSwitch span{grid-column:1/-1!important}
 }
+
+/* Live sync health indicator: compact, tappable, nonblocking */
+#staffSyncIndicator{position:fixed;right:14px;bottom:88px;z-index:800;display:flex;align-items:center;justify-content:center;gap:5px;max-width:calc(100vw - 28px);padding:8px 12px;border-radius:999px;background:#18362d;color:#9ff0ca;border:1px solid #376d57;box-shadow:0 4px 16px #0004;font-size:11px;font-weight:700;cursor:pointer;line-height:1.25}
+#staffSyncIndicator[data-status=error]{background:#47292a;color:#ffb5b5;border-color:#965555}
+#staffSyncIndicator[data-status=loading]{background:#27364c;color:#c1d7f8;border-color:#506c92}
+#staffSyncIndicator[hidden]{display:none!important}
+@media(max-width:720px){#staffSyncIndicator{right:10px;bottom:calc(85px + env(safe-area-inset-bottom,0px));padding:6px 9px;font-size:10px;max-width:155px;text-align:center;opacity:.92}}
