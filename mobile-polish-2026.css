@@ -100,3 +100,5 @@
 .diagnosticsLine{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #4a5e7a66;font-size:13px}.diagnosticsLine span{color:#a9c6e8;text-align:right}
 #diagnosticsEvents{margin:12px 0;max-height:220px;overflow:auto;font-size:12px;color:#b9cee8}.diagnosticsEvent{padding:8px 0;border-bottom:1px solid #4a5e7a66;overflow-wrap:anywhere}
 .diagnosticsActions{display:flex;flex-wrap:wrap;gap:8px}.diagnosticsActions button{padding:10px;border:1px solid #536d91;border-radius:10px;background:#294363;color:#edf5ff;cursor:pointer}
+
+#siteBackupAction{margin:8px 8px 16px 0;padding:11px 15px;border-radius:12px;background:#214b43;color:#c4f9e8;border:1px solid #4c9887;font-weight:700;cursor:pointer}#siteBackupAction:hover{background:#2a6155}@media(max-width:600px){#siteBackupAction{width:100%;margin:8px 0 12px}}
