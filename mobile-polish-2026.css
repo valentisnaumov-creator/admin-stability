@@ -72,3 +72,8 @@
 #staffSyncIndicator[data-status=loading]{background:#27364c;color:#c1d7f8;border-color:#506c92}
 #staffSyncIndicator[hidden]{display:none!important}
 @media(max-width:720px){#staffSyncIndicator{right:10px;bottom:calc(85px + env(safe-area-inset-bottom,0px));padding:6px 9px;font-size:10px;max-width:155px;text-align:center;opacity:.92}}
+
+#openStaffAudit{margin:8px 0 16px;padding:11px 15px;border-radius:12px;background:#273954;color:#e7f2ff;border:1px solid #5374a0;font-weight:700;cursor:pointer}
+.staffActivityAuditDialog{width:min(740px,calc(100vw - 24px));max-height:85dvh;overflow:auto;padding:20px;border-radius:18px;border:1px solid #526584;background:#121d2e;color:#edf5ff}
+.staffActivityAuditDialog::backdrop{background:#000a}.staffAuditHeader{display:flex;align-items:center;justify-content:space-between;gap:12px}.staffAuditHeader h2{margin:0}.staffAuditHeader button{font-size:26px;background:transparent;color:inherit;border:0;cursor:pointer}
+.staffAuditEntry{padding:12px 0;border-bottom:1px solid #52658466;display:grid;gap:6px}.staffAuditEntry small{color:#a7bbd7}.staffAuditEntry details{font-size:12px}.staffAuditEntry summary{cursor:pointer;color:#8dbfff}.staffAuditEntry pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.5 monospace;color:#c9d8eb}#reloadStaffAudit{margin-top:12px;padding:10px 14px;border-radius:10px;background:#274466;color:white;border:1px solid #5374a0}
