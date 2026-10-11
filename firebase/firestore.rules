@@ -1,6 +1,58 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function myRolePath() {
+      return /databases/$(database)/documents/user_roles/$(request.auth.uid);
+    }
+    function active() {
+      return signedIn() && exists(myRolePath())
+        && get(myRolePath()).data.is_blocked == false
+        && get(myRolePath()).data.role in ['trainee', 'admin', 'chief_admin', 'deputy_special', 'creator'];
+    }
+    function elevated() {
+      return active() && get(myRolePath()).data.role in ['admin', 'chief_admin', 'deputy_special', 'creator'];
+    }
+    function owner() {
+      return active() && get(myRolePath()).data.role == 'creator';
+    }
+    // Role records are written exclusively through a trusted Admin SDK backend.
+    match /user_roles/{uid} {
+      allow get: if signedIn() && request.auth.uid == uid;
+      allow list, create, update, delete: if false;
+    }
+    // Private profile fields may be viewed by their owner; writes are deferred
+    // until field-level validation and authorization are implemented.
+    match /user_profiles/{uid} {
+      allow get: if active() && request.auth.uid == uid;
+      allow list, write: if false;
+    }
+    // Read-only staging data for authenticated, non-blocked staff.
+    match /staff/{id} {
+      allow read: if active();
+      allow write: if false;
+    }
+    match /daily_marks/{id} {
+      allow read: if active();
+      allow write: if false;
+    }
+    match /schedule_assignments/{id} {
+      allow read: if active();
+      allow write: if false;
+    }
+    match /schedule_slots/{id} {
+      allow read: if active();
+      allow write: if false;
+    }
+    match /schedule_replacements/{id} {
+      allow read: if active();
+      allow write: if false;
+    }
+    // Messages, audit history, invitations, private conversations,
+    // notifications and all other collections stay inaccessible to clients
+    // until per-document access rules have been designed and tested.
     match /{document=**} {
       allow read, write: if false;
     }
